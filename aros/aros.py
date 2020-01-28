@@ -112,6 +112,8 @@ class AROS():
         self.vars['depth_value'] = [d['name'] for d in self.config['depths']].index(self.vars['depth']) + 1
 
         map_size = self.config['options']['map_size']
+        plunge_row = self.config['options']['map_plunge_row']
+        plunge_col = self.config['options']['map_plunge_col']
         half = int(map_size / 2)
         exit_distance = self.roll_die(die=10, advantage=2)
 
@@ -121,7 +123,7 @@ class AROS():
 
         plunge = self.config['table']['environment'][self.vars['depth']]['plunge']
 
-        rooms[half][half] = {
+        rooms[plunge_col][plunge_row] = {
             'location': plunge,
             'hallways': 1 if self.vars['depth'] == 'reef' else 3,
             'exit': exit_distance,
@@ -130,9 +132,30 @@ class AROS():
             'index': 0,
         }
 
-        self.room_list = [rooms[half][half]]
+        self.room_list = [rooms[plunge_col][plunge_row]]
         self.room_index = 0
-        map = self.depth_first_map(rooms, self.vars['depth'], half, half)
+
+        if self.vars['depth'] == 'reef':
+            barrier_row = plunge_row + 1
+            barrier_col = plunge_col
+            rooms[plunge_col][plunge_row]['hallways'] = 0
+            rooms[plunge_col][plunge_row]['halls'] = ['S']
+
+            barrier = self.config['table']['environment']['reef']['great_barrier']
+            rooms[barrier_col][barrier_row] = {
+                'location': barrier,
+                'hallways': barrier['hallways'] - 1,
+                'distance': 0,  # technically should be 1, but reef maps are a little tight
+                'halls': ['N'],
+                'index': 1,
+            }
+
+            self.room_list.append(rooms[barrier_col][barrier_row])
+            self.room_index += 1
+
+            map = self.depth_first_map(rooms, self.vars['depth'], barrier_col, barrier_row)
+        else:
+            map = self.depth_first_map(rooms, self.vars['depth'], plunge_col, plunge_row)
 
         self.print_map(map, exit_distance)
 
@@ -214,6 +237,9 @@ class AROS():
             'halls': [],
         }
 
+        if isinstance(room['hallways'], str):
+            room['hallways'] = self.parse_str_roll(room['hallways'])
+
         self.room_list.append(room)
         return room
 
@@ -242,6 +268,9 @@ class AROS():
                 roll['count'] = 1
             roll['count'] = self.interpolate_value(roll['count'])
 
+            if 'advantage' not in roll:
+                roll['advantage'] = 0
+
             results = []
 
             if 'result' in roll:
@@ -257,7 +286,7 @@ class AROS():
                 table = [self.dig(self.config['table'], t) for t in roll['table']]
 
                 for c in range(roll['count']):
-                    results.extend([self.roll_table(t) for t in table])
+                    results.extend([self.roll_table(table=t, advantage=roll['advantage']) for t in table])
 
             elif 'args' in roll:
                 roll_results = [self.roll_die(**roll['args'])]
@@ -608,6 +637,10 @@ class AROS():
                 print(textwrap.indent(r['description'], self.indent))
 
         print(BC.RESET)
+
+    def parse_str_roll(self, string):
+        count, die = string.split('d')
+        return self.roll_die(count=int(count), die=int(die))
 
     def color(self, text, color):
         if color in self.colors:
