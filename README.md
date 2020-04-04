@@ -36,4 +36,4 @@ Run the tool on the command line.
 aros map pelagic -s awesome_seed
 Seed: awesome_seed
 ```
-[Imgur](https://i.imgur.com/u2BgBhV.png)
+![Imgur](https://i.imgur.com/u2BgBhV.png)
