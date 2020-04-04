@@ -31,5 +31,5 @@ setup(
     packages = find_packages(),
     python_requires = '>=3.5',
     url = 'https://github.com/wmgroot/aros',
-    version = '0.0.1',
+    version = '1.0.0',
 )

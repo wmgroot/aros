@@ -175,6 +175,8 @@ class AROS():
                 directions.append(d)
 
         self.random.shuffle(directions)
+        if self.args['rolls_on']:
+            self.logger.log('direction roll -> %s' % directions)
 
         while rooms[x][y]['hallways'] > 0 and len(directions) > 0:
             direction = directions.pop(0)
@@ -225,9 +227,9 @@ class AROS():
         self.room_index += 1
 
         location = self.roll_table(self.config['table']['environment'][depth]['location'])[0].copy()
-        self.parse_rolls(location)
+        self.parse_rolls(location, rand=self.roll_seed(self.random))
         situation = self.roll_table(self.config['table']['situation'])[0].copy()
-        self.parse_rolls(situation)
+        self.parse_rolls(situation, rand=self.roll_seed(self.random))
 
         room = {
             'location': location,
@@ -247,7 +249,7 @@ class AROS():
         table = self.dig(self.config['table'], args[0])
         self.roll(label=args[0], table=table)
 
-    def parse_rolls(self, data, root=None):
+    def parse_rolls(self, data, rand, root=None):
         if not isinstance(data, dict) or 'roll' not in data:
             return
 
@@ -324,13 +326,22 @@ class AROS():
 
             for r in flat_results:
                 if isinstance(r, dict) and 'roll' in r:
-                    self.parse_rolls(r, root)
+                    self.parse_rolls(r, rand, root)
 
 
     def roll(self, label='', table=None):
         if isinstance(table, list) or 'entries' in table:
             result = self.roll_table(table=table, spread=self.args['spread'])
-            self.logger.log(' - %s: %s' % (label, result))
+            if not isinstance(result, list):
+                result = [result]
+
+            if 'format' in result[0]:
+                format = result[0]['format']
+            else:
+                format = label + ': %s'
+
+            results = ', '.join([r['name'] for r in result])
+            self.logger.log(format % results)
         else:
             for key, value in table.items():
                 self.roll('%s.%s' % (label, key), value)
@@ -391,8 +402,17 @@ class AROS():
 
         return results
 
+    def roll_seed(self, rand):
+        seed = ''.join(rand.choice('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz') for x in range(16))
+        new_rand = random.Random(seed)
+
+        if self.args['rolls_on']:
+            self.logger.log('seed roll -> %s' % seed)
+
+        return new_rand
+
     # returns 1..N
-    def roll_die(self, die, count=1, advantage=0):
+    def roll_die(self, die, count=1, advantage=0, label=''):
         advantage = max(-3, min(advantage, 3))
         count = self.interpolate_value(count)
 
@@ -430,7 +450,12 @@ class AROS():
                 adv = '+' * advantage
             else:
                 adv = '-' * abs(advantage)
-            self.logger.log('roll (%sd%s%s) -> %s -> %s -> %s' % (count, die, adv, roll, final_roll, roll_sum))
+
+            roll_message = ''
+            if label:
+                roll_message += '%s: ' % label
+            roll_message += 'roll (%sd%s%s) -> %s -> %s -> %s' % (count, die, adv, roll, final_roll, roll_sum)
+            self.logger.log(roll_message)
 
         return roll_sum
 
@@ -487,9 +512,12 @@ class AROS():
 
         # fill = [self.color(f, BC.BLUE) for f in fill]
 
+        
+
         lines = []
         for l in range(height):
-            lines.append(' ' * width)
+            # lines.append(' ' * width)
+            lines.append(self.color(fill[0] * width, 'blue'))
 
         if room:
             if 'danger' in room['location']:
