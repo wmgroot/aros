@@ -6,7 +6,7 @@ A Rasp of Sand is created by David Cox, an awesome guy.
 He's given me permission to public content as part of this open source project, to help facilitate running the game.
 
 Please check out the DriveThruRPG page, and help support awesome content!
-https://www.kickstarter.com/projects/dastardlydave/a-rasp-of-sand-a-roguelike-tabletop-rpg-experience
+https://www.drivethrurpg.com/product/298057/A-Rasp-of-Sand
 
 ## Installation
 First ensure you have Python 3.5+ installed.
