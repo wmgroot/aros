@@ -12,7 +12,7 @@ setup(
         'Topic :: Utilities',
         'License :: GNU GENERAL PUBLIC LICENSE :: Version 3',
     ],
-    description = ('A Rasp of Sand Helper'),
+    description = ('A Rasp of Sand Helper Tool'),
     entry_points = {
         'console_scripts': [
             'aros = aros.aros:main',
@@ -31,5 +31,5 @@ setup(
     packages = find_packages(),
     python_requires = '>=3.5',
     url = 'https://github.com/wmgroot/aros',
-    version = '1.0.0',
+    version = '1.1.0',
 )

@@ -1,0 +1,2676 @@
+# fun seeds:
+# ??? - clam hunting eelaconda prey
+# ??? - reef arena with a not-so-sea cucumber finale
+# aros map reef -s stZjDUAzx3T1EOV4 (5 coral maze + 1 amaname garden - lol)
+
+# bugs
+# reef can decently often dead end immediately with an amaname garden
+# aros map reef -s qeu9qwdeWNYFWAen
+
+options:
+  map_size: 7
+  map_max_distance: 4
+  map_plunge_col: 3
+  map_plunge_row: 2
+  map_print_room_rows: 9
+  map_print_room_cols: 29
+  map_print_creatures_per_line: 1
+  # map_print_fill:
+  #   - «
+  #   - »
+#   map_print_fish:
+#     shark: |-
+#             .
+#       \_____)\_____
+#       /--v____ __`<
+#               )/
+#               '
+#     angelfish: |-
+#          ,
+#         /|
+#        /_/ ,
+#       /o \/|
+#       \<_/\|
+#        \ \ `
+#         \|
+#          `
+#     tetras: |-
+#       /\
+#     _/./
+#  ,-'    `-:.,-'/
+# > O )<)    _  (
+#  `-._  _.:' `-.\
+#      `` \;
+#     discus: |-
+#    ____
+#   /    \
+#  /----./
+# / o    \/|
+# >        |
+# \ <)   /\|
+#  \----'\
+#   \____/
+#     shark_large: |-
+#        _________         .    .
+#       (..       \_    ,  |\  /|
+#        \       O  \  /|  \ \/ /
+#         \______    \/ |   \  /
+#            vvvv\    \ |   /  |
+#            \^^^^  ==   \_/   |
+#             `\_   ===    \.  |
+#             / /\_   \ /      |
+#             |/   \_  \|      /
+#                    \________/
+#     whale: |-
+#        .
+#       ":"
+#     ___:____     |"\/"|
+#   ,'        `.    \  /
+#   |  O        \___/  |
+# ~^~^~^~^~^~^~^~^~^~^~^~^~
+  print_indent: 4
+  descriptions:
+    colors:
+      creature: yellow
+      encounter: blue
+      loot: green
+      trap: red
+      default: purple
+
+depths:
+  - name: pelagic
+  - name: reef
+  - name: kelp
+  - name: twilight
+  - name: trench
+
+# creature:
+#   chum:
+#     hit_dice: 1
+#     morale: 5
+#     armor_defense: 10
+#     language: Piscine
+#     weakness: null
+#     resistance: null
+#     attacks:
+#       - name: bite
+#         damage: '1d4'
+#       - name: weapon
+#         damage: '1d?'
+#     description: |-
+#       Short, nervous, scaley, large eyed, bipedal fish. They never look directly at you and constantly gasp for air. Avoid schools of them. Mostly scavengers and opportunistic hunters.
+#
+#       Note: Priests always have at least one Random Spell Pearl, and Guards always have one piece of Random Armor.
+#     mutation: |-
+#       Cowardly X: Decrease your Heir's Morale by X. X is equal to the amount of times you have gotten Cowardly.
+#   chum_balloon:
+#     hit_dice: 3
+#     morale: 7
+#     armor_defense: 13
+#     language: Piscine
+#     weakness: Piercing
+#     resistance: Bludgeon
+#     attacks:
+#       - name: bite
+#         damage: '1d4'
+#       - name: baby flail
+#         damage: '1d8 Bludgeon'
+#     description: |-
+#       Inflate: When struck by a melee attack the chum expands rapidly. Its spikes protrude and the Attacker need to make a DEX Save or take 1D6 Piercing damage. Recharge on 5+ on 1D6.
+#
+#       Larger and more confident than your average chum. These balloon like chum carry their giggling twin children on driftwood sticks and use them as flails.
+#     mutation: |-
+#       Spikey: Your skin is covered in spikey protrusions. You can’t wear armor, but you gain a Natural Armor of 13. Plus, when you are struck you deal 1D4 Piercing Damage to the Attacker.
+#   chum_tropical:
+#     hit_dice: 2
+#     morale: 6
+#     armor_defense: 11
+#     language: Piscine
+#     attacks:
+#       - name: Bite
+#         damage: '1d4 CON Save (Poison 1/round)'
+#       - name: Pike Coral
+#         damage: '1d6 Piercing'
+#       - name: Urchin Blowgun
+#         damage: '1 Piercing CON Save (Poison 1/round)'
+#     description: |-
+#       Poisonous: When a creature touches a Tropical Chum they must make a CON Save or become Poisoned (1 Damage per Round, Save Ends)
+#
+#       Brightly colored and sporting magnificent fins on their heads. Well known for their arrogance and self-grooming, these cultured chum are poisonous to the touch.
+#     mutation: |-
+#       Vibrant: Some part of your body becomes vibrantly colored or marked. This could be your hair, skin, eyes, nails, etc.
+#   chum_balloon:
+#     hit_dice: 3
+#     morale: 7
+#     armor_defense: 13
+#     language: piscine
+#     weakness: piercing
+#     resistance: bludgeon
+#     attacks:
+#       - name: bite
+#         damage: '1d4'
+#       - name: baby flail
+#         damage: '1d8 bludgeon'
+#     description: |-
+#       Inflate: When struck by a melee attack the chum expands rapidly. Its spikes protrude and the Attacker need to make a DEX Save or take 1D6 Piercing damage. Recharge on 5+ on 1D6.
+#
+#       Larger and more confident than your average chum. These balloon like chum carry their giggling twin children on driftwood sticks and use them as flails.
+#     mutation: |-
+#       Spikey: Your skin is covered in spikey protrusions. You can’t wear armor, but you gain a Natural Armor of 13. Plus, when you are struck you deal 1D4 Piercing Damage to the Attacker.
+
+table:
+  character:
+    appearance:
+      clothing:
+        format: 'Clothing: %s'
+        entries:
+          - Antique
+          - Ceremonial
+          - Decorated
+          - Eccentric
+          - Elegant
+          - Fashionable
+          - Filthy
+          - Stained
+          - Frayed
+          - Shabby
+          - Patched
+          - Simple
+      face:
+        format: 'Face: %s'
+        entries:
+          - Blunt
+          - Bony
+          - Chiseled
+          - Delicate
+          - Elongated
+          - Pinched
+          - Hawkish
+          - Ratlike
+          - Round
+          - Sunken
+          - Square
+          - Wolfish
+      hair:
+        format: 'Hair: %s'
+        entries:
+          - Bald
+          - Braided
+          - Bristly
+          - Cropped
+          - Curly
+          - Disheveled
+          - Dreadlocks
+          - Filthy
+          - Frizzy
+          - Greased
+          - Limp
+          - Long
+          - Luxurious
+          - Mohawk
+          - Oily
+          - Ponytail
+          - Silky
+          - Topknot
+          - Wavy
+          - Wispy
+      height:
+        format: 'Height: %s'
+        entries:
+          - name: Tiny
+            frequency: 2
+          - name: Short
+            frequency: 2
+          - name: Average
+            frequency: 4
+          - name: Tall
+            frequency: 2
+          - name: Towering
+            frequency: 2
+      physique:
+        format: 'Physique: %s'
+        entries:
+          - Gaunt
+          - Scrawny
+          - Slender
+          - Wiry
+          - Flabby
+          - Average
+          - Average
+          - Athletic
+          - Stout
+          - Brawny
+          - Ripped
+          - Hulking
+      speech:
+        format: 'Speech: %s'
+        entries:
+          - Blunt
+          - Booming
+          - Breathy
+          - Cryptic
+          - Droning
+          - Flowery
+          - Formal
+          - Gravelly
+          - Mumbling
+          - Quaint
+          - Squeaky
+          - Whispery
+    equipment:
+      armor:
+        format: 'Armor: %s'
+        entries:
+          - name: No Armor
+            description: '(Defense: 11)'
+            frequency: 3
+          - name: Canvas Tunic
+            description: '(Defense: 12, Slot: 1, Quality: 3)'
+            frequency: 11
+          - name: Seal Leather
+            description: '(Defense: 13, Slot: 2, Quality: 4)'
+            frequency: 5
+          - name: Iron-Scale Mail
+            description: '(Defense: 14, Slot: 3, Quality: 5)'
+            frequency: 1
+      dungeoneering:
+        format: 'Dungeoneering Gear: %s'
+        entries:
+          - Rope, 50ft
+          - Pulleys
+          - Chain, 10ft
+          - Chalk, 10x
+          - Crowbar
+          - Torch, 2x (light for 3 rooms)
+          - Grappling Hook
+          - Hammer
+          - Padlock
+          - Manacles
+          - Mirror
+          - Pole, 10ft
+          - Sack
+          - Machete
+          - Spikes, 5
+          - Random Scroll
+          - Lantern and Blubber Oil (light for 1 floor)
+          - Glowing Algae Globe
+          - name: Random Slug
+            roll:
+              - slug.color
+              - slug.effect
+          - name: Random Spellpearl
+            roll: spell
+      general-1:
+        format: 'General 1: %s'
+        entries:
+          - Torch, 2x (light for 3 rooms)
+          - Bear Trap
+          - Shovel
+          - Bellows
+          - Grease
+          - Saw
+          - Bucket
+          - Caltrops
+          - Chisel
+          - Drill Weapon
+          - Fishing Rod
+          - Marbles
+          - Glue
+          - Pick
+          - Hourglass
+          - Net
+          - Tongs
+          - Lockpick
+          - Metal file
+          - Random Melee
+      general-2:
+        format: 'General 2: %s'
+        entries:
+          - Torch, 2x (light for 3 rooms)
+          - Sponge
+          - Lens
+          - Perfume
+          - Horn
+          - Bottle
+          - Soap
+          - Spyglass
+          - Tar Pot
+          - Twine
+          - Fake Jewels
+          - Card Deck
+          - Dice Set
+          - Face Paint
+          - Whistle
+          - Instrument
+          - Quill & Ink
+          - Small Bell
+          - Airbladder
+          - Random Ranged Weapon
+      helmet_and_shield:
+        format: 'Helmet/Shield: %s'
+        entries:
+          - name: None or Hat
+            description: '(Defense: 11)'
+            frequency: 13
+          - name: Helmet
+            description: '(Defense +1, Slot: 1, Quality: 1)'
+            frequency: 3
+          - name: Shield
+            description: '(Defense +1, Slot: 1, Hand: 1, Quality: 1)'
+            frequency: 3
+          - name: Helmet and Shield
+            # description: -
+            frequency: 1
+      melee_weapon:
+        format: 'Melee Weapon: %s'
+        entries:
+          - name: Dagger
+            description: '(Damage: 1D6 Pierce, Slot: 1, Hand: 1, Quality: 3)'
+            frequency: 5
+          - name: Cudgel
+            description: '(Damage: 1D6 Bludgeon, Slot: 1, Hand: 1, Quality: 3)'
+            frequency: 2
+          - name: Sickle
+            description: '(Damage: 1D6 Slash, Slot: 1, Hand: 1, Quality: 3)'
+            frequency: 1
+          - name: Mace
+            description: '(Damage: 1D8 Bludgeon, Slot: 2, Hand: 1, Quality: 3)'
+            frequency: 2
+          - name: Spear
+            description: '(Damage: 1D8 Pierce, Slot: 2, Hand: 1, Quality: 3)'
+            frequency: 4
+          - name: Hand Ax/Sword
+            description: '(Damage: 1D8 Slash, Slot: 2, Hand: 1, Quality: 3)'
+            frequency: 1
+          - name: Eku
+            description: '(Damage: 1D8 Slash or Bludgeon, Slot: 3, Hand: 2, Quality: 3)'
+            frequency: 1
+          - name: Hammer
+            description: '(Damage: 1D10 Bludgeon, Slot: 3, Hand: 2, Quality: 3)'
+            frequency: 1
+          - name: Harpoon
+            description: '(Damage: 1D10 Pierce, Slot: 3, Hand: 2, Quality: 3)'
+            frequency: 2
+          - name: Ax/Longsword
+            description: '(Damage: 1D10 Slash, Slot: 2, Hand: 2, Quality: 3)'
+            frequency: 1
+      ranged_weapon:
+        format: 'Ranged Weapon: %s'
+        entries:
+          - name: Sling
+            description: '(Ranged, Ammo: N/A, Damage: 1D4, Slot: 1, Hand: 1, Quality: 2)'
+            frequency: 12
+          - name: Bow
+            description: '(Ranged, Ammo: Arrows, Damage: 1D6, Slot: 2, Hand: 2, Quality: 3)'
+            frequency: 6
+          - name: Crossbow
+            description: '(Ranged, Ammo: Bolts, Damage: 1D8, Slot: 3, Hand: 2, Quality: 3)'
+            frequency: 2
+    god:
+      format: 'God: %s'
+      entries:
+        - Deep Queen
+        - Green Prince
+        - High Lord of Elcontra
+        - High Lord of Foltoran
+        - High Lady of Frigil
+        - Yellow Princess
+    passion:
+      format: 'Passion: %s'
+      entries:
+        - Lazy (N/A)
+        - Athletics (STR)
+        - Acrobatics (DEX)
+        - Hard Work (CON)
+        - Learning (INT)
+        - Experience (WIS)
+        - Socializing (CHA)
+        - Martial Arts (STR)
+        - Craftsmanship (DEX)
+        - Cooking (CON)
+        - Magic (INT)
+        - Spirituality (WIS)
+        - Music (CHA)
+        - Swimming (STR)
+        - Travel (CON)
+        - Dance (DEX)
+        - Science (INT)
+        - Marksmanship (WIS)
+        - Art (CHA)
+        - Prodigy (Pick Two)
+    trade:
+      format: 'Trade: %s'
+      entries:
+        - Academic
+        - Cook
+        - Entertainer
+        - Fisher
+        - Magician
+        - Merchant
+        - Priest
+        - Sailor
+        - Slug Rancher
+        - Smith
+        - Smuggler
+        - Warrior
+    vice:
+      format: 'Vice: %s'
+      entries:
+        - Aggressive
+        - Arrogant
+        - Bitter
+        - Cowardly
+        - Cruel
+        - Deceitful
+        - Flippant
+        - Gluttonous
+        - Greedy
+        - Irascible
+        - Lazy
+        - Nervous
+        - Prejudiced
+        - Reckless
+        - Rude
+        - Suspicious
+        - Vain
+        - Vengeful
+        - Wasteful
+        - Whiny
+    virtue:
+      format: 'Virtue: %s'
+      entries:
+        - Ambitious
+        - Cautious
+        - Courageous
+        - Courteous
+        - Curious
+        - Disciplined
+        - Focused
+        - Generous
+        - Gregarious
+        - Honest
+        - Honorable
+        - Humble
+        - Idealistic
+        - Just
+        - Loyal
+        - Merciful
+        - Righteous
+        - Serene
+        - Stoic
+        - Tolerant
+
+  environment:
+    pelagic:
+      plunge:
+        name: The Plunge
+        description: |-
+          You take two flights of stairs down until you finally step into a large circular room. The light around you percolates through the roof and you find it surprisingly well lit. As the clouds circle over the island the sunlight shifts and weaves on the floor in beautiful almost aquatic patterns.This room has four exits counting the stairs you came down. It splits off in three cardinal directions. In the center of the spherical room are engravings that run along the floor. Around the base of the staircase are circular bubble-like patterns, and as you touch the floor you notice the patterns glow incredibly dimly in the bright light of the first floor when you step near them. In addition to the glowing, you notice there is water flowing throughout. Some large like small streams others no more than a finger’s width wide. Wherever you step the channels and engravings pulse with a faint greenish-blue light.
+
+          Lighting: Bright Direct
+
+          You are right below the surface, the ceilings are low. The light is bright and tinted blueish- green. Most of the rooms have multiple entrances and exits, and the rooms themselves are more open in general.
+      encounter:
+        type: encounter
+        format: 'Pelagic Encounter: %s'
+        entries:
+          - name: The Heirs find a Clam. If they pry it open roll for Loot.
+            roll: loot
+          - A flock of four Chel fly into the room and begin munching on vegetation.
+          - name: A lone Chum comes obliviously walking into the room.
+            roll:
+              result:
+                type: creature
+                name: 1 Chum
+          - name: 3 Glaucs (Glaucimmian) climb into the room.
+            roll:
+              result:
+                type: creature
+                name: 3 Glaucs
+          - name: 3 Chum walk into the room carelessly.
+            roll:
+              result:
+                type: creature
+                name: 3 Chum
+          - name: An Octopod rides on the back of its walker into the room. It worriedly looks around for Cuttlers, and offers to show the Heirs to a safe place. If the Heirs follow, the Octopod shows them its Workshop.
+            description: |-
+              The Octopod sticks its tentacle into a spiraling socket and twists. A small hidden door opens. Inside is hidden and safe. Strange tools and machinery abound. You have no idea how you’d even hold them.
+
+              This safe room allows the Heirs to Rest undisturbed once before beginning to flood and sealing itself up. They must leave before then.
+            roll:
+              result:
+                type: creature
+                name: Octopod
+          - name: A Hermit crawls by. It stops and attempts to communicate with the Heirs to sell them something. Roll on the Loot Table if the players can speak Crustacean.
+            roll:
+              - result:
+                  type: creature
+                  name: Hermit
+              - loot
+          - name: 6 Gulltures stalk into the room.
+            roll:
+              result:
+                type: creature
+                name: 6 Gulltures
+          - name: 6 Chum enter, one of them is a Priest.
+            roll:
+              result:
+                type: creature
+                name: 5 Chum, 1 Chum Priest
+          - name: A pack of 6 Dotters scamper through the room.
+            roll:
+              result:
+                type: creature
+                name: 6 Dotters
+          - name: 2 Dolpods come into the room stealthily.
+            roll:
+              result:
+                type: creature
+                name: 2 Dolpods
+          - name: 8 Chum enter. Half of them have spears and the other half have slings.
+            roll:
+              result:
+                type: creature
+                name: 8 Chum
+          - name: An Eelaconda begins stalking the Heirs.
+            roll:
+              result:
+                type: creature
+                name: Eelaconda
+          - name: 8 Glaucs come tearing into the room, screaming while being chased by an Eelaconda.
+            roll:
+              result:
+                type: creature
+                name: 8 Glaucs
+          - name: A lone Cuttler begins to stalk the Heirs.
+            roll:
+              result:
+                type: creature
+                name: Cuttler
+          - name: 8 Chum appear with spears and slings, one is a Priest.
+            roll:
+              result:
+                type: creature
+                name: 7 Chum, 1 Chum Priest
+          - name: A Shrimp Swarm comes buzzing into the room.
+            roll:
+              result:
+                type: creature
+                name: Shrimp Swarm
+          - name: A Scale Stalker is hunting the Heirs. It has caught them.
+            roll:
+              result:
+                type: creature
+                name: Scale Stalker
+          - name: A Sea Swallower enters the far end of the room.
+            roll:
+              result:
+                type: creature
+                name: Sea Swallower
+          - name: Two twin Scale Stalkers enter the room.
+            roll:
+              result:
+                type: creature
+                name: 2 Scale Stalkers
+      location:
+        - name: Hanging Garden
+          hallways: 2
+          danger: -2
+          roll:
+            - result:
+                type: creature
+                name: '%s Hermit'
+              args:
+                label: hermits
+                die: 4
+                advantage: 1
+            - format: 'Slug 1: %s'
+              table: slug.color
+            - format: 'Slug 1: %s'
+              table: slug.effect
+            - format: 'Slug 2: %s'
+              table: slug.color
+            - format: 'Slug 2: %s'
+              table: slug.effect
+            - format: 'Slug 3: %s'
+              table: slug.color
+            - format: 'Slug 3: %s'
+              table: slug.effect
+          description: |-
+            This room’s ceiling covered with amphibious plants. Light dapples the floor colored yellow-green by the quartz and plant matter above you. The plants in this room are grown in organized rows on the ceiling.
+
+            In the room are 1D4 [+] Hermits, who move from row to row, pruning and checking on their Slugs. They seem very diligent and mostly ignore you. The Hermits will attempt to communicate using Crustacean. They will be willing to trade some of their harvest for 250S each Slug, and they will happily barter. Roll three times on the Slug table to determine what Slugs are for sale.
+        - name: Open Water
+          hallways: 4
+          danger: 0
+          roll:
+            - format: 'Floating in the Channels: %s'
+              table: misc.open_water
+          description: |-
+            A very open room. The current canals pulse regularly with the glowing algae as water flows along the tracks here. Occasionally something flows in through the channels.
+          # Roll 1D6 to determine what floats in via the many channels.
+          # 1. 3 Chum float through.
+          # 2. A Sack of Loot floats past. Roll three times on the Loot Table.
+          # 3-4. Someone sent the dead’s Sand down. Gain 500 Sand.
+          # 5. A Dead Chum floating on its back, it’s holding a wooden figurine. Roll for a random Spell, this figurine functions as a Spell Pearl of that Spell.
+          # 6. An Eelaconda enters.
+        - name: The Great Currents
+          hallways: 3
+          danger: -1
+          roll:
+            - format: 'Chest: %s'
+              table: treasure
+          description: |-
+            You are inside of a globe and its walls are a map. In five different large areas of what you can assume must symbolize oceans there is soft clay. Surrounded by continents that are made of stone. In the center of the room is a pedestal and sticking out of the center vertically is a rod made of driftwood with a coral tip. Beneath it, on the pedestal is a sentence written in the language of the gods. It says, “Hot to cold, and cold to hot; never stop, never stop; if they do, we all drop.”
+
+            If the Heirs choose to investigate the room:
+            Near the equator in each of the clay spaces there is a small hole in the clay constantly burbling warm water. Near the poles of this inverted globe are small holes in the clay burbling cold water. Three cold water springs are at the northern pole and three more are at the southern pole. There are six warm springs along the equator.
+
+            Solution:
+            If the Heirs push the rod into the soft clay near the spigot the water will follow the channel they create. The goal is to create six channels that circulate warm water to cold and vice-versa in a loop. If they do this the walls of clay melt down and reveal a chest. Roll on the Treasure table.
+        - name: Sinking Ship
+          hallways: 2
+          danger: 0
+          roll:
+            - environment.$depth.trap
+            - misc.sinking_ship
+          description: |-
+            A large ship is imbedded in the ceiling and floor here. Partially capsized, it hangs perpetually aloft, bow to the sky. It is falling apart slowly as time, water, scavengers and seaweed eat at it. Many things could hide within it, both living and not.
+
+            If the Heirs spend an Exploration Turn looking around the ship they find an entrance into the cabins and cargo hold. Roll on the table to generate what they find.
+
+            Trap Door:
+            If the Heirs search the sinking vessel and succeed at a WIS Save, they find a trap door leading down to the Reef. The trap door is old and rotting. It blends into the rotting bottom of the boat. If the Heirs take the door down, generate the next room as usual.
+          # Sinking Ship Table: 1D6
+          # 1. A Chest of Loot (Roll on Loot table
+          # twice) is found!
+          # 2. A Dead Sailor (Roll on Loot table)
+          # is found.
+          # 3. A Hermit has set up shop. (Roll on each of the Gear Tables twice to determine stock. The prices are equal to the corresponding dice value x 1.0.
+          # 4. There is a noticeable lack of metal on-board. Hiding in the hold, chewing on bolts is a Steel Beak.
+          # 5. The Heirs find 2 Dolpod Cultists worshipping at a desecrated temple to the Deep Queen.
+          # 6. The ship is covered in Plague Urchins.
+        - name: Whirlpool Well
+          hallways: 4
+          danger: -1
+          description: |-
+            You hear water rushing as you enter this room. A lot of the channels from this floor make their way here, either along the halls or through the small pipes in the walls. The water starts shallow around the edge and gradually gets deeper as you near the center of the spherical room.
+
+            Heirs need to make a STR or DEX Save to stay on their feet at the end of each Combat and Exploration Turn. If they fail, they fall to the ground and begin getting pulled to the center of the room. While knocked prone they are pulled towards the center of the spherical room at the end of their Combat turn.
+
+            At the beginning of a creature’s Combat turn, they may make a STR or DEX Save, if they succeed they are able to stand.
+
+            If they fail two Saves in a row they reach the center of the circle. They are sucked into the channel at the bottom, take 1D6 Bludgeoning Damage, and are spit out into The Reef (generate a room in the Reef as usual).
+
+            It takes two Move Exploration Turns to exit the room.
+        - name: Seagrass Plains
+          hallways: 4
+          danger: 1
+          roll:
+            - format: 'Chest Roll: %s'
+              args:
+                label: chest
+                die: 4
+                advantage: 1
+            - table: treasure
+          description: |-
+            This room has a 10ft ceiling, and the floor is covered in fine sand and seagrass going up to hip level. The grass flows in the wind moving through the Depths. Chel flit around the room munching on grass.
+
+            If the Heirs spend an Exploration Turn investigating they find an “X” marked in the sand. Buried there is a Chest. Roll 1D4, and on a 1 the Chest is a Mimic Fish, any other number roll on the Treasure table.
+        - name: Spawning Pool
+          hallways: 2
+          danger: 0
+          roll:
+            table: misc.spawning_pool
+            advantage: -1
+          description: |-
+            There's sticky egg piles everywhere. Oh gods, they are breeding in here! It's awful I can't describe it. On the upside the Chum are distracted?
+
+            Roll to determine the number of Chum, they are indeed distracted.
+          # Chum Table: 1D4 [-]
+          # 1. a Chum
+          # 2. 3 Chum
+          # 3. 3 Chum and a Chum Guard
+          # 4. 4 Chum, 2 Chum Guards and a Chum Priest
+        - name: Driftwood Pile
+          hallways: 1
+          danger: 1
+          roll: misc.driftwood_pile
+          description: |-
+            A massive pile of driftwood greets you as you enter this room. It rises up to the ceiling intermingling with vegetation. There are small crustaceans, Chels and fish peeking out of the many gaps. There’s a large opening near the base. You should be able to hunt for some food here.
+        - name: Gullture Eerie
+          hallways: 3
+          danger: 1
+          roll:
+            - environment.$depth.trap
+            - result:
+                type: creature
+                name: 4 Gulltures
+            - result:
+                type: creature
+                name: 6 Baby Gulltures
+          description: |-
+            This room has a high ceiling. The walls are covered in channels that slowly dump their contents to the floor at your feet. The ground is covered in bird feces up to your shin. The walls are covered in a tightly interwoven net of seaweed, and interspersed within the mess are multiple nests.
+
+            There are four gulltures and six helpless baby gulltures.
+        - name: Chum Nest
+          hallways: 3
+          danger: -1
+          roll:
+            - environment.$depth.trap
+            - misc.chum_nest
+          description: |-
+            In this large room, there are many huts and hanging nests made of Tangle Weed and other strong seaweed and detritus. You can hear the gulping chatter of many Chum.
+
+            Roll on the Pelagic Trap table.
+
+            Roll on the Chum Nest table to determine the number of Chum that currently live here. They are incredibly skittish and will hide inside their nests if they do not outnumber the Heirs.
+        - name: Upside Down Brush
+          hallways: 3
+          danger: 1
+          roll:
+            - environment.$depth.trap
+            - result:
+                type: creature
+                name: 8 Glaucimmians
+            - format: 'Slug 1: %s'
+              table: slug.color
+            - format: 'Slug 1: %s'
+              table: slug.effect
+            - format: 'Slug 2: %s'
+              table: slug.color
+            - format: 'Slug 2: %s'
+              table: slug.effect
+            - format: 'Slug 3: %s'
+              table: slug.color
+            - format: 'Slug 3: %s'
+              table: slug.effect
+            - format: 'Slug 4: %s'
+              table: slug.color
+            - format: 'Slug 4: %s'
+              table: slug.effect
+          description: |-
+            This room has a 30ft ceiling covered with amphibious plants. Dense vegetation surrounds you on all sides. It hangs from the ceiling and hides valuable slugs and dangerous beasts. The vegetation hangs down to about hip level, so you can see to the other side of the room by bending down or crawling. It is darker than most of the surrounding rooms due to the density of the plants growing above you.
+
+            Roll on the Pelagic Trap table.
+
+            A colony of 8 Glaucimmians live here. They make a racket as they feed on the Lady-o’- Peace, Velvines, various Slugs and fruits of the vegetation. They will throw toxic darts at intruders and raise a racket if the Heirs aren’t sneaky. If the Heirs spend an Exploration Turn investigating they find 4 random Slugs hidden in the brush.
+        - name: The Shelf
+          hallways: 3
+          danger: 2
+          roll: environment.twilight.encounter
+          description: |-
+            The hall you are in empties into a pit. You can’t see the bottom. Channels flow up and down the walls of this abyss. There are narrow walkways that you might be able to use to cross the Shelf. Some creatures may climb down here, or up...
+
+            Roll on the Twilight Encounter table.
+            In order to climb the walls of the Shelf you must succeed on a DEX Save. You gain [+] if you use climbing equipment.
+      trap:
+        type: trap
+        format: Trap! %s
+        entries:
+          - name: No Trap
+            frequency: 3
+          - name: Vel Vines
+            description: STR or DEX Save or become grappled. Save ends.
+            frequency: 2
+          - name: Porps
+            frequency: 2
+            roll:
+              result:
+                type: creature
+                name: Porps
+          - name: Channel Flush
+            description: STR Save or get pushed to next room.
+            frequency: 1
+          - name: Nabbit Worm
+            frequency: 1
+            roll:
+              result:
+                type: creature
+                name: Nabbit Worm
+          - name: Mimic Fish
+            frequency: 1
+            roll:
+              result:
+                type: creature
+                name: Mimic Fish
+          - name: Lady o’ Peace
+            frequency: 2
+            roll:
+              result:
+                type: creature
+                name: Lady O' Peace
+    reef:
+      plunge:
+        name: The Plunge
+        description: |-
+          Lighting: Bright w/ Some Dark Caverns
+
+          The Plunge in the Reef Depth always has one hallway besides the staircase to the Pelagic (where the players will have initially entered this level). The hallway South leads to the Great Barrier.
+
+          The Reef is a shallow vibrant area, full of life. The area is known for the colorful blend of corals that dot its halls. Life here is beautiful, but much of it is toxic or venomous. Some creatures use the corals that they call home as protective armor. The passageways here are winding and cramped and dead ends are frequent.
+
+          The Reef is a maze of stone-like protrusions that are made by small animal colonies. Toxic creatures and plants abound here. It’s easy to become lost when navigating these twisting halls, so only the most cautious of Heirs will succeed.
+      great_barrier:
+        name: The Great Barrier
+        hallways: 2
+        danger: -1
+        description: |-
+          Ahead of you looms a 30ft tall wall. It stretches across the room and you can see it continue into the quartz walls. It seems to stretch for miles in both directions.
+
+          There are three ways to get into the Reef:
+            A. Climb the wall. It requires two STR or DEX Saves to climb the wall.
+            B. The gate. It’s guarded by two young Reef Golems that are wielding poisonous spears. It requires a donation to the garden to get in via the gate. 500S per Heir.
+            C. Secret entrance. If the Heirs spend an Exploration Turn to investigate the area they find a channel that runs through the wall. They might be able to squeeze through. Though the guards might notice them.
+      encounter:
+        type: encounter
+        format: 'Reef Encounter: %s'
+        entries:
+          - name: 3 Rations worth of Not-So-Sea Cucumbers slide about the room and munch on organics they come upon. Slimey chewy goodness.
+          - name: A flock of Chel fly into the room and begin munching on vegetation.
+            roll:
+              result:
+                type: creature
+                name: Chel
+          - name: 2 Tropical Chum saunter into the room. They know they look fabulous.
+            roll:
+              result:
+                type: creature
+                name: 2 Tropical Chum
+          - name: 3 Balloon Chum waddle into the room.
+            roll:
+              result:
+                type: creature
+                name: 3 Balloon Chum
+          - name: A Brain Coral sits in here all alone...
+            roll:
+              result:
+                type: creature
+                name: Brain Coral
+          - name: An Octopod rides on the back of its walker into the room. It worriedly looks around for Cuttlers, and offers to show the Heirs to a safe place. If the Heirs follow, the Octopod shows them its Workshop.
+            description: |-
+              The Octopod sticks its tentacle into a spiraling socket and twists. A small hidden door opens. Inside is hidden and safe. Strange tools and machinery abound. You have no idea how you’d even hold them.
+
+              This safe room allows the Heirs to Rest undisturbed once before beginning to flood and sealing itself up. They must leave before then.
+            roll:
+              result:
+                type: creature
+                name: Octopod
+          - name: A Hermit crawls by. It stops and attempts to communicate with the Heirs to sell them wares. Roll on the Loot Table twice if the players can speak Crustacean.
+            roll:
+              - table: loot
+                count: 2
+              - result:
+                  type: creature
+                  name: Hermit
+          - name: A school of 7 Tropical Chum are in a hunting party. They are armed with Urchin Quill blowguns and Coral Pikes.
+            roll:
+              result:
+                type: creature
+                name: 7 Tropical Chum
+          - name: A Scale Stalker has picked up their motion in the channels. It stalks the Heirs silently.
+            roll:
+              result:
+                type: creature
+                name: Scale Stalker
+          - name: A Mystic Remora is drawn to magical items. It attempts to sneak into the pack of an Heir carrying a magical item and suck the Sand from the item.
+            roll:
+              result:
+                type: creature
+                name: Mystic Remora
+          - name: A Steelbeak is munching a suit of armor in here, and maybe the corpse inside.
+            roll:
+              - equipment.armor
+              - result:
+                  type: creature
+                  name: Steelbeak
+          - name: 8 Tropical Chum and 2 Balloon Chum come marching into the room. One of the Tropical Chum is wearing a headdress of coral and carries a Spell Pearl. The Tropical Chum are armed with Urchin Quill Blowguns and Coral Pikes.
+            roll:
+              - spell
+              - result:
+                  type: creature
+                  name: 8 Tropical Chum, 2 Balloon Chum
+          - name: 2 Steelbeaks come into the room sniffing down metal.
+            roll:
+              result:
+                type: creature
+                name: 2 Steelbeaks
+          - name: A Rainbow Shrimp charges the Heirs.
+            roll:
+              result:
+                type: creature
+                name: Rainbow Shrimp
+          - name: A lone Cuttler begins to stalk the Heirs.
+            roll:
+              result:
+                type: creature
+                name: Cuttler
+          - name: A lone bull Reef Golem comes crashing into the room.
+            roll:
+              result:
+                type: creature
+                name: Reef Golem
+          - name: 4 Dolpods armed with random weapons attack the Heirs, one has a random Spell Pearl.
+            roll:
+              - table: equipment.melee_weapon
+                count: 2
+              - table: equipment.ranged_weapon
+                count: 2
+              - spell
+              - result:
+                  type: creature
+                  name: 4 Dolpods
+          - name: A Shrimp Swarm comes buzzing into the room. It attacks the smallest creature and moves up to the largest, after sucking the last victim dry.
+            roll:
+              result:
+                type: creature
+                name: Shrimp Swarm
+          - name: A Sea Swallower enters the far end of the room.
+            roll:
+              result:
+                type: creature
+                name: Sea Swallower
+          - name: A pair of young aggressive Reef Golems enter. They are engorged with coral spores and looking for a place to create their own glade.
+            roll:
+              result:
+                type: creature
+                name: 2 Young Reef Golem
+      location:
+        - name: Golem's Glade
+          hallways: 2
+          danger: -1
+          roll:
+            result:
+              type: creature
+              name: Reef Golem
+          description: |-
+            This room is a curated glade of small coral and in its center sits a behemoth of a beast. A creature in the shape of a man but made of coral sits motionless. Where its head should be, a huge mass of brain coral rests. When you enter the room you feel something probing your thoughts.
+
+            This room is a coral nursery and has one very pregnant Reef Golem within it. Due to this it operates a bit differently than most. It wants the Heirs to leave. If the Heirs won’t leave it goes from wary to agitated to angry to violent fairly quickly. It won’t allow anything to pass through here, especially if the Heirs are carrying any coral.
+
+            This golem has +2 HD and the ability to force an Heir to make a contested INT or CHA Save in order to resist the telepathic probing of the Reef Golem. If they fail, they are compelled to leave the way they came.
+        - name: Thicket
+          hallways: 4
+          danger: 0
+          roll:
+            - environment.$depth.trap
+            - table: coral
+              advanntage: 1
+            - result:
+                type: creature
+                name: Reef Golem
+          description: |-
+            Multiple thickets of coral grow here in large ridges. Many types of coral can be found in this room.
+
+            Roll on the Reef Trap table. There’s always one Reef Golem here.
+
+            This is a fairly normal room except for the coral thickets around. Any Heir can spend an Exploration Turn scavenging for different types of coral. Roll on the Coral table with [+] to determine what they find.
+        - name: The Speaker
+          hallways: 4
+          danger: 0
+          roll: treasure
+          description: |-
+            In the center of this room are five massive statues of heads. They are arranged like pips on the 5th side of a D6. The four surrounding ones mouth’s appear to be yelling but instead of noise, water pours forth. The water pours into a cistern surrounding the center head.
+
+            If the Heirs choose to investigate, they hear faint words coming from the center statue. A STR Save with [--] can turn any of the statues. You can negate [-] by inserting a tool into one of the many holes that line the base of the statues.
+
+            Once rotated, you can see that the center statue was also spewing water and you can clearly hear a gurgling voice (it’s speaking Piscine). Any Heir that speaks Piscine or any Heir that submerges their head in the cistern can understand it. The water level in the cistern also drops down to five feet, and reveals hand holds leading to the bottom.
+
+            If a creature goes into the cistern, the algae on the hand holds glow at their touch and the light ripples down to the bottom of the cistern revealing an old locked (DEX Save [-]) chest with treasure inside (roll on the Treasure table).
+
+            If an Heir submerges their head to get to the chest, they understand the words being spoken by the statue. It tells them that there is more treasure to be found and to look for “where the Father of Mountains mourns.”
+        - name: Elevator
+          hallways: 1
+          danger: 0
+          description: |-
+            There are two huge channels embedded in the sides of this room. Water rushes up one and down the other. They look large enough to get inside.
+
+            These channels can be used like elevators. One goes up and the other down. Creatures and detritus occasionally come into this room via the elevator channels. A creature needs to hold their breath and climb into one of the channels to go up or down levels of the Depths. If they use an elevator they pop out in a newly generated room that is connected to a previously explored room. If they go to an otherwise unexplored floor, just generate a room as normal. Either way the generated rooms have an extra exit that is the elevator.
+        - name: A-mana-me Garden
+          hallways: 1
+          danger: -1
+          roll:
+            - result:
+                type: creature
+                name: A-mana-me
+            - result:
+                type: creature
+                name: '%s Hermits'
+              args:
+                label: hermits
+                die: 6
+          description: |-
+            Rows of pots hold large flower-like a-mana- me. Hermits move from pot to pot, plucking them and placing them on their shells one at a time. They try multiples until they find the perfect fit.
+
+            There are rows and rows of A-mana-me in pots that are being tended by 1D6 Hermits. The Hermits are neutral unless provoked, or if the Heirs steal an A-mana-me.
+
+            An Heir can purchase an a-mana-me from the Hermits for 1000S if they can speak Crustacean.
+
+            A-mana-me can be applied to Armor with a successful [-] INT Save or by a Smith during a Rest. The A-mana-me’s effects won’t harm the wearer, but otherwise operate as normal..
+        - name: Coral Maze
+          frequency: 4
+          hallways: '1d4'
+          danger: 0
+          roll:
+            - environment.$depth.trap
+            - misc.coral_maze
+          description: |-
+            This room has any number of exits. The colorful coral twists all around you. Canals carry moisture and coral offspring around the maze. Sometimes running along the halls other times running through the coral.
+
+            The maze can have any number of connecting hallways, and a multitude of varying traits, roll below.
+          # Size of Halls: 1D6
+          # 1. Open. The Heirs can pass through however they'd like.
+          # 2. Tight. Two-by-two only.
+          # 3. Low. Heirs must bend over and move at
+          # half speed.
+          # 4. Fat man's squeeze. Single file.
+          # 5. Stifling. It's dark. No light.
+          # 6. Time to crawl. So low the Heirs have to crawl. Move at quarter speed.
+        - name: Spinney
+          frequency: 2
+          hallways: 3
+          danger: 1
+          roll: misc.spinney
+          description: |-
+            Massive colonies of coral rise all around you. It is all one species. I wouldn't touch it. An old sign is lying face-down on the ground. In the sharp squeaky tongue of the Cetaceans it reads
+            "Beware Hurty Coral."
+
+            This is a fairly normal room except for the coral thickets around. If any creature gets moved involuntarily (from a Stunt, for example) they suffer the effects of the coral.
+          # Roll 1D4 to determine the type of Coral in the room and the scene description: Refer to the Coral Table below for effects.
+          # 1. Pike Coral Long shafts of sharp coral spread out from central bases in this room. You can see the corpse of a strange human-looking creature impaled on one of the colonies.
+          # 2. Fire Coral Large shrubs of bright orange, red, and yellow coral grow around the room. A few scorched Chum corpses lay on the ground in various places.
+          # 3. Urchin's Spine Small shrub-like colonies of deep violet and black coral grow here. The body of a man lies at the base of one shrub. The corpse is swollen and bloated.
+          # 4. Calcium Coral Small tree-like growths of a pale white coral grow here. They are sharp and jagged. The smaller trees have a dark red patina to them. A skeleton lies on the ground. The bones are rougher than normal.
+        - name: Lagoon Arena
+          hallways: 4
+          danger: 0
+          roll:
+            - format: 'Round 1 Trap: %s'
+              table: environment.$depth.trap
+            - format: 'Round 1 Encounter: %s'
+              table: environment.$depth.encounter
+              advantage: 1
+            - format: 'Round 2 Trap: %s'
+              table: environment.$depth.trap
+            - format: 'Round 2 Encounter: %s'
+              table: environment.$depth.encounter
+              advantage: 1
+            - format: 'Round 3 Trap: %s'
+              table: environment.$depth.trap
+            - format: 'Round 3 Encounter: %s'
+              table: environment.$depth.encounter
+              advantage: 1
+            - table: loot
+              advantage: 2
+              count: 5
+          description: |-
+            In front of you stands a Hermit under a large sign written in Crustacean are the words "Lagoon Arena."
+
+            The Hermit requests an entry fee of 250S from the group to enter the competition. If the Heirs do not pay they cannot go into this room.
+
+            If the Heirs pay the fee and go into the arena. You cross from the hallway out into a large room. It is by far the largest room you have found in the Reef. It is circular and surrounded by jagged Stag, Pike, and Fire Corals that protrude from the walls. Above this barrier are seated hundreds of Hermits, Chum, Dolpods, and other creatures you've never seen.
+
+            In order to leave the arena the Heirs must survive three rounds: They get the opportunity to Rest once between each round. Roll on the Reef Encounter table [+] once per round. There are also different traps each round. Roll on the Reef Trap table to determine what trap is present for each round.
+
+            If the Heirs survive: they may each roll on the Loot table [++] to determine a prize. They may also loot the enemies they fight.
+
+            Trap Door
+            If the Heirs choose to investigate, they find a trap door leading down to the Kelp Forest. The trap door is covered in a light layer of sand. If the Heirs take the door down, generate the next room as usual.
+      trap:
+        type: trap
+        format: Trap! %s
+        entries:
+          - name: No Trap
+            frequency: 2
+          - name: Table Coral False Floor
+            description: Pit trap 10ft. deep.
+            frequency: 1
+          - name: Porps
+            frequency: 1
+            roll:
+              result:
+                type: creature
+                name: Porps
+          - name: Plague Urchins
+            frequency: 1
+            roll:
+              result:
+                type: creature
+                name: Plague Urchins
+          - name: Pit of Pike Coral
+            description: DEX Save or take 1D6 Piercing.
+            frequency: 1
+          - name: Fire Coral Wall
+            description: Save or take 1D6 Heat.
+            frequency: 1
+          - name: Channel Flush
+            description: STR Save or get pushed to next room.
+            frequency: 1
+          - name: Nabbit Worm
+            frequency: 1
+            roll:
+              result:
+                type: creature
+                name: Nabbit Worm
+          - name: A-mana-me
+            frequency: 1
+            roll:
+              result:
+                type: creature
+                name: A-mana-me
+          - name: Mimic Fish
+            frequency: 1
+            roll:
+              result:
+                type: creature
+                name: Mimic Fish
+          - name: Doorgler
+            frequency: 1
+            roll:
+              result:
+                type: creature
+                name: Doorgler
+    kelp:
+      plunge:
+        name: The Plunge
+        description: |-
+          Lighting: Low light. Lots of shadows.
+
+          This floor is covered in dense vegetation. Kelp rises up to the ceiling and blocks a lot of the sunlight that filters through the first two floors. The ceilings here are tall and the kelp takes advantage of it. It's also a bit colder here.
+
+          Contrast in lighting is everywhere here. Shadows meld and morph into the dark greens of the kelp and the deep grays of the rock outcroppings. These shapes may hide nothing or the undulating shape of an Eelaconda.
+      encounter:
+        type: encounter
+        format: 'Kelp Encounter: %s'
+        entries:
+          - name: 3 Rations worth of Not-So-Sea Cucumbers slide about the room and munch on organics they come upon. Slimey chewy goodness.
+          - name: The Heirs find a Clam. If they pry it open roll for Loot.
+            roll: loot
+          - name: A couple of Chels enter. Two Chels fly into the room and begin munching on vegetation. They will fly away if startled.
+            roll:
+              result:
+                type: creature
+                name: 2 Chel
+          - name: A lone Hermit crawls into view. Their shell is covered in anemone and coral growths. They are VERY proud of their shell and will talk about it endlessly. Their name is Alkr’flk.
+            roll:
+              result:
+                type: creature
+                name: Alkr’flk (Hermit)
+          - name: An Octopod rides on the back of its walker into the room. It worriedly looks around for Cuttlers, and offers to show the Heirs to a safe place. If the Heirs follow, the Octopod shows them its Workshop.
+            description: |-
+              The Octopod sticks its tentacle into a spiraling socket and twists. A small hidden door opens. Inside is hidden and safe. Strange tools and machinery abound. You have no idea how you’d even hold them.
+
+              This safe room allows the Heirs to Rest undisturbed once before beginning to flood and sealing itself up. They must leave before then.
+            roll:
+              result:
+                type: creature
+                name: Octopod
+          - name: A pack of 8 Dotters come chirping and yipping into the room. They playfully run around the Heirs. A couple are young, and could be tamed. It takes 4 Rations and a CHA Save to successfully tame a Dotter.
+            roll:
+              result:
+                type: creature
+                name: 8 Dotters
+          - name: 4 Skipper Chum hop into combat and can dive onto opponents.
+            roll:
+              result:
+                type: creature
+                name: 4 Skipper Chum
+          - name: 8 Plague Urchins crawl slwoly around the room.
+            roll:
+              result:
+                type: creature
+                name: 8 Plague Urchins
+          - name: 4 Rockskipper Chum and 2 Balloon Chum enter the room.
+            roll:
+              - result:
+                  type: creature
+                  name: 4 Rockskipper Chum
+              - result:
+                  type: creature
+                  name: 2 Balloon Chum
+          - name: A small contingent of 4 Dolpods walk into the room.
+            roll:
+              - result:
+                  type: creature
+                  name: 4 Dolpods
+          - name: A Cannon Shrimp recklessly attacks!
+            roll:
+              - result:
+                  type: creature
+                  name: Cannon Shrimp
+          - name: 6 Rockskipper Chum enter, and one has a Spell Pearl.
+            roll:
+              - spell
+              - result:
+                  type: creature
+                  name: 6 Rockskipper Chum
+          - name: 2 Scale Stalkers stalk into the room.
+            roll:
+              result:
+                type: creature
+                name: 2 Scale Stalkers
+          - name: 8 Rockskipper Chum enter the room.
+            roll:
+              result:
+                type: creature
+                name: 8 Rockskipper Chum
+          - name: A Cuttler enters the room and begins stalking an Heir.
+            roll:
+              result:
+                type: creature
+                name: Cuttler
+          - name: An Electric Eelaconda has a nest here.
+            roll:
+              - result:
+                  type: creature
+                  name: Electric Eelaconda
+          - name: A Doorgler is hiding in one of the halls of this room.
+            roll:
+              result:
+                type: creature
+                name: Doorgler
+          - name: 4 Chumacuda enter the room.
+            roll:
+              result:
+                type: creature
+                name: 4 Chumacuda
+          - name: 2 Cannon Shrimp and 2 Rainbow Shrimp are sparring in this room they turn their attention to you.
+            roll:
+              - result:
+                  type: creature
+                  name: 2 Cannon Shrimp
+              - result:
+                  type: creature
+                  name: 2 Rainbow Shrimp
+          - name: A Hammer Scale Stalker is in the room.
+            roll:
+              result:
+                type: creature
+                name: Hammer Scale Stalker
+      location:
+        - name: Weed Mat
+          hallways: 4
+          danger: -1
+          roll:
+            - result:
+                type: creature
+                name: '%s Dotters'
+              args:
+                label: dotters
+                die: 8
+          description: |-
+            This mid-sized room is covered in a mat of seaweed. You can see where the seaweed has been bound into small nests for Dotters. Harmless shells of Urchins litter the floor.
+
+            Dotters live here. Roll 1D8, on a 5+ that many Dotters are currently here. They are cautious but also incredibly curious of the newcomers. If the Dotters aren’t present show evidence of them being around and work in a roaming pack of Dotters into the floor.
+        - name: Salty Orchard
+          hallways: 3
+          danger: 0
+          roll:
+            - result:
+                type: creature
+                name: '%s Sea Cows'
+              args:
+                label: sea cows
+                die: 8
+            - result:
+                name: '%s Raw Meat'
+              args:
+                label: raw meat
+                die: 6
+            - result:
+                type: creature
+                name: '%s Glaucimmian'
+              args:
+                label: glaucimmian
+                die: 6
+            - result:
+                name: '%s Fruit'
+              args:
+                label: fruit
+                die: 6
+          description: |-
+            This room is filled with fruiting kelp. The seaweed stands tall with beautiful golden fruit growing off of it, while surrounding sea berry bushes grow in clumps from the ceiling. All around you the room is filled with popping of suction cups and the noisy chewing of the Sea Cows.
+
+            There are always 1D8 Sea Cows (passive, sources of 1D6 raw meat) in a herd here. Glaucimmian are also common, roll 1D6 to determine the amount of them. Smart Heirs can spend an Exploration Turn gathering fruits here. They can find 1D6 Rations worth of fruit.
+        - name: The Weeper
+          hallways: 3
+          danger: 1
+          description: |-
+            This room has a yawning abyss in the center that separates a 5ft ledge that you now find yourselves on. Kelp and Tangle Weed grow off of the sides of the walls of the abyss and tickle the edge with their long leaves. The remains of a bridge reaches 10ft out into the abyss, but the majority of the bridge has fallen. You can see where the bridge used to connect on the far side. In an alcove, on the side of the abyss you are on, sits a massive statue depicting a mighty older man wearing animal furs, bent over, weeping into his hands. Water pours from his eye sockets and pools in his cupped hands. Across the room is a statue of a woman holding a small bundle wrapped in seaweed up to her chest. She similarly has water running down her face, but it pools onto the floor and runs into the abyss.
+
+            *There is a third exit on the other side of the abyss hidden behind a mat of seaweed growing on the wall.
+
+            There are two exits on the Heirs side of the room, both on the same outcropping.
+
+            If the Heirs wash their face in the tears of the male statue, they can see a path across the abyss. It twists and undulates but provides solid footing.
+
+            If the Heirs investigate the bundle in the arms of the female statue, they find a locked chest. Inside is the Green Prince’s Axe.
+        - name: Kelp Copse
+          frequency: 3
+          hallways: '1d4'
+          danger: 1
+          description: |-
+            In this room dense kelp towers above you. It is dimly lit by the sun and there are plenty of areas for threats to hide.
+
+            Getting through this forest is going to be slow. It takes an additional Exploration Turn to get through here. The dim light and thick vegetation gives Heirs [-] on any WIS Saves to perceive their surroundings.
+        - name: Tangleweed Thicket
+          frequency: 2
+          hallways: 2
+          danger: 0
+          description: |-
+            Ahead of you is a wall of matted greenish- yellow Tangle Weed. It could easily be used as netting, if you cut it properly. In its current state it serves as an organic wall.
+
+            To Move past this Room requires you to make a STR Save to clear the Weed and make a path, or you can make a DEX Save to slip through. Tools may help.
+        - name: Chum Nest
+          hallways: 3
+          danger: 0
+          roll:
+            - misc.chum_nest_kelp
+          description: |-
+            In this large room, there are many huts and hanging nests made of Tangle Weed and other strong seaweed and detritus. You can hear the gulping chatter of many Chum.
+
+            Roll on the Chum table to determine the number of Chum that currently live here. They are incredibly skittish and will hide inside their nests if their numbers are not double the number of Heirs. If they do outnumber the Heirs 2:1, they become hostile and attempt to chase off the invaders.
+        - name: Urchin Barren
+          hallways: 4
+          danger: -1
+          roll:
+            - result:
+                type: creature
+                name: 8 Plague Urchins
+          description: |-
+            Nothing grows here. You can find the occasional holdfast from where there was once a kelp plant, but not much more. Instead you only find Plague Urchins.
+
+            There are 8 Plague Urchins in this room. Crossing Urchin Barrens is incredibly dangerous. One false move and the whole place explodes.
+
+            The room can be crossed safely via moving slowly, but this costs the Heirs a total of two Exploration Turns to traverse.
+        - name: Sunken Temple
+          hallways: 1
+          danger: 2
+          roll: treasure
+          description: |-
+            A rotting wooden building stands here surrounded by the rotting remains of trees. Inside the temple is an ancient wooden altar, on the altar there is a carving of a young person; cheerful with an ax in hand. An eerie feeling almost overwhelms you as you enter the temple. On the back wall of the temple is a carving in heartwood of a woman wearing a crown similar to the one you carry. The woman’s arms are outstretched in a hug as she leans toward the young boy in front of you.
+
+            This temple was once the home of the Green Prince. The Deep Queen doesn't want the Heirs here and has some of her most dangerous creations guarding this place.
+
+            Secret: Hidden under detritus and newly created soil is an offering box. Roll on the Treasure table.
+        - name: The Chimney
+          hallways: 1
+          danger: 1
+          roll: treasure
+          description: |-
+            This tiny room is full to the brim of kelp. It sways with the winds that come pulsing through the Kelp Forest. You can't see the ceiling of the room from the ground, but it seems to stretch higher than any other you have been in. High above you there's a rhythmic tinkling of glass.
+
+            This room has a chest floating at the ceiling. It is suspended by glass buoys in a net. If Heirs can reach it and unlock it they may roll for treasure.
+
+            If the Heirs spend an Exploration Turn investigating, they find a trapdoor in the ceiling concealed by swaying kelp. It leads to a newly generated room in the Reef.
+    twilight:
+      plunge:
+        name: The Plunge
+        description: |-
+          Lighting: Darkness. Bioluminescene is common but a source of light is important.
+
+          The Twilight is a place of travel. Swift currents carry food, loot and creatures deeper and shallower here. The Chum also call this floor home. It is open, the rooms are spacious, and not much vegetation can be found here. Larger creatures are known to call this floor home. The floor is dark.
+
+          Dolpods are frequently found here. The fantacial cultists of the Deep Queen hate the surface dwellers and what they did to their cousins in the ocean.
+      encounter:
+        type: encounter
+        format: 'Twilight Encounter: %s'
+        entries:
+          - name: The Heirs find a Clam. If they pry it open roll for Loot.
+            roll: loot
+          - The room is filled with Glow Jellies.
+          - name: A school of 4 Deep Chum skulk in the room.
+            roll:
+              result:
+                type: creature
+                name: 4 Deep Chum
+          - A swarm of Firefly Squid blink rhythmicly.
+          - A lone Hermit crawls into view. Their shell is covered in anemone and coral growths. They are VERY proud of their shell and will talk about it endlessly. Their name is Alkr’flk.
+          - 2 Rainbow Shrimp box here. They attack the heir with the most magic items.
+          # - A pod of 6 Dolpods fanatically worship in the twilight. They are in a religious fervor.
+          - A Spear Swimmer streaks into the room after the heirs.
+          - A Scale Stalker sits staring at the channels as the heirs enter.
+          - A pod of 8 Dolpods fanatically scream telepathically in this room. The telepathic cacophony requires a WIS Save or other take 2D6 Psychic Damage. They are preoccupied.
+          - 3 Yeti Crabs graze territorially.
+          - A pair of Electric Eelaconda enter and begin to stalk the Heirs.
+          - name: A pod of 6 Dolpods enter, one is wearing priests vestement and carries two Random Spell Pearls.
+            roll:
+              table: spell
+              count: 2
+          - A Hammer Scale Stalker is chained to the floor here. It rages at any creatures that enter.
+          - name: A pod of 8 Dolpods enter, one is wearing priests vestement and carries two Random Spell Pearls, and 2 are screaming telepathically.
+            roll:
+              table: spell
+              count: 2
+          - A Vampire Squid begins stalking the Heirs.
+          - A Marionetta Squid works its puppet here...
+          - A Doorgler is hiding in one of the halls of this room.
+          - A school of 5 Chumacuda enter the room.
+          - A pod of 6 Dolpods begin hunting the heirs. They don’t know one of them is being controlled by a Marionetta Squid. They know where you are.
+          - The mighty Sperm Behemoth slams into the room.
+      location:
+        - name: Elevator
+          hallways: 1
+          danger: 0
+          description: |-
+            There are two huge channels embedded in the sides of this room. Water rushes up one and down the other. They look large enough to get inside.
+
+            These channels can be used like elevators. One goes up and the other down. Creatures and detritus occasionally come into this room via the elevator channels. A creature needs to hold their breath and climb into one of the channels to go up or down levels of the Depths. If they use an elevator they pop out in a newly generated room that is connected to a previously explored room. If they go to an otherwise unexplored floor, just generate a room as normal. Either way the generated rooms have an extra exit that is the elevator.
+        - name: The Nest
+          hallways: 3
+          danger: -1
+          roll:
+            - result:
+                type: creature
+                name: '%s Sea Cows'
+              args:
+                label: sea cows
+                die: 8
+            - result:
+                name: '%s Raw Meat'
+              args:
+                label: raw meat
+                die: 6
+            - result:
+                type: creature
+                name: '%s Glaucimmian'
+              args:
+                label: glaucimmian
+                die: 6
+            - result:
+                name: '%s Fruit'
+              args:
+                label: fruit
+                die: 6
+          description: |-
+            A school of barreleye swim through the air, floating in and out of an alcove high above the ground. Most have opaque heads but a couple have transparent heads. The barreleye quickly swallow any small creatures or food that they see, chasing small shrimp. A fountain stands in the corner of the room, the bowl of the fountain has a large whale swimming along the rim, then continuously smaller whales circle the rim until they meet up with the large original whale.
+
+            The barreleye are voracious and attempt to eat any food or creatures small enough to swallow.
+
+            If the Heirs spend an Exploration Turn investigating, they notice whatever creatures rolled up on the Encounter Roll are tiny; no more than the size of a walnut. The barreleye voraciously pursue these tiny creatures. One creature should be eaten and seen floating in the head of the transparent barreleye. The creature appears to be directing the barreleye by hitting certain nerves.
+
+            If the Heirs drink from the fountain they shrink down to walnut size. Barreleye will attempt to swallow them. The other Heirs may attempt to fend off the opaque barreleye, but if the shrunken Heir is swallowed by an opaque barreleye they must succeed on a STR Save or die. If they are swallowed by a transparent barreleye, they can direct the fish up towards an alcove that holds treasure. Roll on the Treasure Table. Any Heirs swallowed by the transparent barreleye can find their way to the mouth of the barreleye and escape easily.
+        - name: Open Water
+          frequency: 2
+          hallways: 4
+          danger: 0
+          roll: misc.open_water_twilight
+          description: |-
+            A very open room. The current canals pulse regularly with the glowing algae as water flows along the tracks here. Occasionally something flows in through the channels.
+
+            Roll 1D6 to determine what floats in via the many channels.
+        - name: Spawning Pool
+          frequency: 2
+          hallways: 2
+          danger: 0
+          roll: misc.spawning_pool_twilight
+          description: |-
+            There's sticky egg piles everywhere. Oh gods, they are breeding in here! It's awful I can't describe it. On the upside the Chum are distracted?
+
+            Roll to determine the number of Chum, they are indeed distracted.
+        - name: Chum Town
+          frequency: 2
+          hallways: 4
+          danger: 0
+          roll: misc.chum_town
+          description: |-
+            The gulping chatter of Chum fill this room. There is a honeycomb network of channels that all empty into this room. Each channel is large enough for a full grown Chum to stand in, and many do. This is the nexus of the Chum channels.
+
+            Roll to determine the number of Chum.
+        - name: Whirlpool Well
+          hallways: 4
+          danger: -1
+          description: |-
+            You hear water rushing as you enter this room. A lot of the channels from this floor make their way here, either along the halls or through the small pipes in the walls. The water starts shallow around the edge and gradually gets deeper as you near the center of the spherical room.
+
+            Heirs need to make a STR or DEX Save to stay on their feet at the end of each Combat and Exploration Turn. If they fail, they fall to the ground and begin getting pulled to the center of the room. While knocked prone they are pulled towards the center of the spherical room at the end of their Combat turn.
+
+            At the beginning of a creature’s Combat turn, they may make a STR or DEX Save, if they succeed they are able to stand.
+
+            If they fail two Saves in a row they reach the center of the circle. They are sucked into the channel at the bottom, take 1D6 Bludgeoning Damage, and are spit out into The Kelp Forest (generate a room in the Kelp Forest as usual).
+
+            It takes two Move Exploration Turns to exit the room.
+        - name: Blue
+          frequency: 2
+          hallways: 4
+          danger: 2
+          description: |-
+            The ceilings are a deep blue that fades from a dark navy to black near the floor. The ceiling and floor are covered in a web of channels dumping water from the ceiling onto the floor and taking it deeper into the Temple.
+
+            Due to the amount of water flowing through this room it is constantly filled with a thick mist and it is incredibly loud. Visibility is even worse than usual. Creatures get [++] to Saves to be sneaky while in this room.
+        - name: Shelf
+          hallways: 3
+          danger: 2
+          description: |-
+            The hall you are in empties into a pit, sulfurous scents fill your nostrils. You can’t see the bottom. Channels flow up and down the walls of this abyss. There are narrow walkways that you might be able to use to cross the Shelf. Some creatures may climb down here, or up...
+
+            In order to climb the walls of the Shelf you must succeed on a DEX Save. You gain [+] if you use climbing equipment. Any Heir may make the same DEX Save to climb down into the Trench. Generate the room in the Trench as usual, but with an additional hallway leading up to the Shelf room the Heir just left.
+    trench:
+      plunge:
+        name: The Plunge
+        description: |-
+          Lighting: Darkness. There is no light.
+
+          The many passages of the Twilight are replaced with one narrow, winding path that is the Trench. This is the deepest part of the Temple. It is pitch black and filled with toxic gas, boiling water, and volcanic vents, but somewhere down here is the Deep Queen’s Throne Room. Many creatures congregate around the vents that frequent this depth and feed off of the minerals, chemicals, and heat coming out of them. The walls here look like they are made of flowing liquid stone that was frozen in place.
+
+          Special Rules:
+          The Trench is a series of tight tunnels. Instead of the standard circular/square shaped rooms of the floors above the Trench’s rooms are all made up of a serpentine ravine twisting in on itself. It takes an extra Exploration Turn to travel out of any room in the Trench.
+
+          The Deep Queen’s Throne Room is the final room on this floor. When generating the Trench, treat the Throne Room as you would the exit for previous floors.
+      encounter:
+        type: encounter
+        format: 'Trench Encounter: %s'
+        entries:
+          - name: There’s a Treasure Clam.
+            roll: treasure
+          - name: The room is filled with Glow Jellies.
+            roll:
+              result:
+                type: creature
+                name: Glow Jellies
+          - name: A school of 4 Deep Chum skulk in the room.
+            roll:
+              result:
+                type: creature
+                name: 4 Deep Chum
+          - name: A swarm of Firefly Squid blink rhythmicly.
+            roll:
+              result:
+                type: creature
+                name: Firefly Squid
+          - name: A school of 6 Deep Chum enter the room.
+            roll:
+              result:
+                type: creature
+                name: 6 Deep Chum
+          - name: 2 Spear Swimmer careen into the room.
+            roll:
+              result:
+                type: creature
+                name: 2 Spear Swimmer
+          - name: 4 Scale Stalkers enter the room.
+            roll:
+              result:
+                type: creature
+                name: 4 Scale Stalkers
+          - name: A small pod of 6 Dolpods enter the room.
+            roll:
+              result:
+                type: creature
+                name: 6 Dolpods
+          - name: 2 Marionetta Squid put on a morbid play here.
+            roll:
+              - result:
+                  type: creature
+                  name: 2 Marionetta Squid
+              - environment.$depth.encounter
+              - environment.$depth.encounter
+          - name: A pod of 8 Dolpods fanatically scream telepathically in this room. The telepathic cacophony requires a WIS Save or you take 2D6 Psychic Damage. They are preoccupied.
+            roll:
+              result:
+                type: creature
+                name: 8 Dolpods
+          - name: 4 Electric Eelaconda enter and begin to stalk the Heirs.
+            roll:
+              result:
+                type: creature
+                name: 4 Electric Eelaconda
+          - name: 8 Deep Chum enter; one is wearing Coral Armor and wielding a Treasure, and one has 2 Spell Pearls.
+            roll:
+              - result:
+                  type: creature
+                  name: 8 Deep Chum
+              - spell
+              - spell
+              - treasure
+          - name: A Vampire Squid stalks the heirs.
+            roll:
+              result:
+                type: creature
+                name: Vampire Squid
+          - name: 12 Deep Chum enter the room.
+            roll:
+              result:
+                type: creature
+                name: 12 Deep Chum
+          - name: A pair of Cuttler twins enter, and begin stalking an Heir.
+            roll:
+              result:
+                type: creature
+                name: 2 Cuttlers
+          - name: A Doorgler is hiding in one of the halls of this room.
+            roll:
+              result:
+                type: creature
+                name: Doorgler
+          - name: 5 Yeti Crabs scuttle by.
+            roll:
+              result:
+                type: creature
+                name: 5 Yeti Crabs
+          - name: A pod of 8 sneaky Dolpods begin hunting the heirs. They know where you are.
+            roll:
+              result:
+                type: creature
+                name: 8 Dolpods
+          - name: A Kraken storms into the room.
+            roll:
+              result:
+                type: creature
+                name: Kraken
+          - name: A Sperm Behemoth fighting a Kraken.
+            roll:
+              result:
+                type: creature
+                name: Sperm Behemoth
+      location:
+        - name: The Wheel
+          hallways: 2
+          danger: 0
+          roll: treasure
+          description: |-
+            A gigantic Squid lunges towards the party. It’s tentacles spread out in an attack display. Water pours forth from its beak like a large waterfall and into a series of channels in the floor. Thankfully it is just a statue, sticking out of a wall. Floating in the pooled water, at the base of the statue, and strewn across the room are ten barrels.
+
+            This massive statue of a Squid is actually a non-functioning water wheel. Each of its huge tentacles has a hook attached to the end, intended to attach to one of the barrels. If all of the barrels are attached to the tentacles the whole head of the squid begins to rotate. This causes a secret passageway behind the waterfall to open up, revealing a chest. Roll on the Treasure Table.
+        - name: A Ravine
+          frequency: 3
+          hallways: 2
+          danger: 1
+          description: |-
+            Surrounded on all sides by tall stone walls in the deepest dark you’ve ever seen, you continue onward. Channels bubble water up from the floor and warm water tickles your feet.
+        - name: Vent Puzzle
+          hallways: 2
+          danger: 0
+          roll: treasure
+          description: |-
+            A series of smoker vents line an area of the walls in this room. They belch black steam into the room that makes visibility incredibly low.
+
+            Hidden behind the black smokers is an alcove where treasure can be found (roll once on the Treasure table and once on the Loot table).
+
+            If the Heirs search the room they may notice a valve that controls the minerals that are spewed out by the smokers. It is currently twisted to the right. If it is twisted to the left the steam gets lighter and cooler. In the middle is the perfect mixture. The steam becomes mostly translucent and is lukewarm, revealing the Treasure and clearing the steam.
+        - name: Hall of Vents
+          frequency: 3
+          hallways: 2
+          danger: -1
+          description: |-
+            This narrow hall like room has many vents covering the walls. A high-pitched whistle reverberates down the hall before gouts of steam pour from the vents.
+
+            Every other round and each Exploration Turn super-heated mineral steam comes blasting out of the walls. It can be avoided by man sized or smaller creatures by laying down. Otherwise it requires a DEX Save to drop prone or take 2D8 Heat Damage.
+        - name: Dolpod Temple
+          hallways: 2
+          danger: -2
+          roll: misc.dolpod_temple
+          description: |-
+            Chittering and chanting come from this room. A pod of Dolpods surround a volcanic vent and the smell of boiling flesh fills your nostrils. Above the vent is a large statue of the Deep Queen holding a Dolpod baby. The Dolpods have steamed a human alive above a volcanic vent. They chitter and laugh maniacally.
+
+            The Dolpods viciously attack any humans that come into the room. They attempt to take them prisoner so they may boil them in sacrifice to their perverted version of the Deep Queen.
+        - name: Worm Hedge
+          frequency: 2
+          hallways: 2
+          danger: 0
+          description: |-
+            The walls of these halls are covered in giant tube worms. Some are taller than you. When agitated, the worms dart back into their hard tubular shells. The air here is dense with fog from the volcanic seepages that cover the floor.
+
+            The worms are harmless filter feeders that sift the nutrient rich air to feed the bacterial farms that grow in their tubes.
+
+            The steam here causes visibility to be even lower than the surrounding dark rooms. Creatures that require sight have [--] on all Saves/Attacks that require sight.
+        - name: Yeti Mounds
+          hallways: 3
+          danger: -1
+          roll:
+            result:
+              type: creature
+              name: Yeti Crab Matron
+          description: |-
+            The room opens up in front of you. All around you mounds of bone white crabs chitter and skuttle around in the darkness.
+
+            If the Heirs use light in this room: You hear a clattering come from one of the large mounds. The smaller crabs fall to the ground and rising from the pile is a massive Yeti Crab Matron.
+  situation:
+    - name: It’s Empty?
+      description: There’s nothing here. It’s quiet except for the burbling of the channels around you.
+      frequency: 5
+    - name: Loot!
+      description: You find a room with a small pile of Sand and a valuable. Lucky you! This could be a chest, a pile of loot, dead bodies, a monster’s stash, etc. Roll on Loot table [Current Depth] times.
+      roll:
+        table: loot
+        count: $depth_value
+    - name: Open for Business
+      description: In this room a small fire crackles and seated near it is a massive crustacean, at least 7ft tall. It has some fish roasting on spits over the fire and is digging in the shell that it wears on its back. A banner on its back says “Cl’ck’d m’lkrt kl’nt!” If one of the Heirs understands Crustacean it says, “Cl’ck’s Market Shell!”. Roll on Loot table 4 times. Prices are equal to the value on the die x (50 x [Current Depth]) Sand
+      roll:
+        - result:
+            type: creature
+            name: Cl’ck
+        - table: loot
+          count: 4
+    - name: A Secret...
+      description: There are large amounts of small channels in this room. They swirl together and pulse gently. A spell pearl pulses gently in a socket in the center of the room.
+      roll:
+        table: spell
+    - name: The Pits
+      frequency: 2
+      description: |-
+        This room has a pattern of channels on the floor. It looks like a grid of 5ft diameter circles that stretches across the room. Each one has water circling it and spiraling down into some strange circular bowl. Some of the bowls occasionally fall away on a hinge and dump the water below you.
+
+        Trap: This room is covered in a pattern of pits. It's a sort of drain. It's like a checkerboard, but every square is a circle, and all of the black squares are hinged trapdoors. Each bowl holds up to 5 gallons of water. Once it exceeds that amount the bowl gives out and spills its contents into whatever is below.
+
+        There are three default ways for Heirs to navigate this trap. Feel free to deviate from these if your Heirs come-up with a more unique way:
+
+        A. They take it slow. The Heirs move at half speed but don't have to make any saves. This method assumes they know about the trap or at least suspect something.
+
+        B. They walk through normally. This is the most common choice if the Heirs are unaware of the trap. In order to cross the room, the Heirs must make a DEX Save. If they are unaware of the trap they have [-] on the Save.
+
+        C. They rush through. The Heirs are running through the room. They must make a DEX Save [-] if they are aware of the trap and [--] if they are unaware.
+
+        Trap Effects by Floor:
+
+        Pelagic: The pits connect to current channels that lead down to the floor below. Any Heir that falls within is spat out into a randomly generated room on the Reef level.
+
+        Reef: The pits once connected to current channels that lead down to the floor below. A colony of Pike Coral now calls these tubes home. Treat these channels like pit traps. Any creature that falls into them takes 1D6 Piercing Damage.
+
+        Kelp Forest: The pits once connected to current channels that lead down to the floor below. A bunch of Tangle Weed now grows in the tubes. Any creature that falls into the pits gets caught in the middle of the tube in a mess of Tangle Weed. It requires a DEX or STR Save to untangle yourself. Then you fall to the floor below or can attempt to climb out.
+
+        Twilight: The pits connect to current channels that lead down to the floor below. Any Heir that falls within is spat out into a randomly generated room on the Trench.
+
+        Trench: The pits connect to hydrothermal vents. Any Heir that fails the DEX Save takes 2D6 Heat Damage.
+
+    - name: A Deep Effigy
+      description: She holds her hand up in the sign of the Deep Queen. Three fingers raised, thumb and pinky finger held across her palm. On her chest is a blood-stained circle with five indentations. If an Heir makes the sign with their fingers and presses their three fingers into the circle and turns it clockwise, a spike will plunge into their hand dealing 50% of their max HP. The engraving will then sink back and reveal a secret room with a chest of treasure! The engraving shudders and glows with bioluminescence. Water pours out of cracks surrounding the door as it slides inward and then sinks to the floor.
+      roll:
+        table: treasure
+    - name: Feeding Frenzy
+      description: You can smell iron in the air and the channels heading out of this room run red. A cacophony of gnashing teeth and ripping flesh comes from the room ahead. Roll for an encounter with [++]. The creatures are eating and very focused on that. The Heirs gain [+] on sneaking by the beasts that are found here.
+      roll:
+        table: environment.$depth.encounter
+        advantage: 2
+    - name: Sunken Shrine
+      description: |-
+        A shrine to a god rests here. It is old, there’s no telling how long it has been here. It is degrading slowly due to having no upkeep from worshipers.
+
+        The Heirs may choose to pray at the altars. The praying Heir must make a Save of the corresponding Ability. Roll on the Shrine table of the appropriate god for results.
+      roll:
+        format: 'Shrine: %s'
+        table: shrine
+    - name: Rushing Water
+      frequency: 2
+      description: You hear the rush of water before you see it. The whole room is covered in deep channels of ocean water rushing violently away from you towards the exit and into the next room. Bioluminescent algae glow brightly under the rush of saltwater. The ground is slick with the slickery weed that grows all over the room. Heirs need to make a STR or DEX Save to stay on their feet. If they fail they slide across the room and out to an adjacent room. They don’t take damage from the fall or slide.
+    - name: Oh No, a Deep Pool
+      description: |-
+        Around you, algae shimmers in hip deep water. The whole room is partially submerged.
+        Regardless the water is deep enough to slow an Heir’s movement by half.
+      # What the Pool is Like: 1D4
+      # 1. The water is full of Mystic Remora. They swim rapidly towards any magical item and begin to degrade its quality with each Attack.
+      # 2-3. The water is fairly clear. No downside. A few small fish avoid the Heirs while swimming in the pool.
+      # 4. The water is murky. You can’t see anything underneath the surface.
+      roll: misc.deep_pool
+    - name: A Hunt is Afoot
+      description: Something is being hunted in here by something even worse. Roll twice on the Encounter table for the Depth floor you are on. Roll with [-] once to determine what is being hunted, then roll again with [+] to determine the hunter.
+      roll:
+        - format: 'Prey: %s'
+          table: environment.$depth.encounter
+          advantage: -1
+        - format: 'Hunter: %s'
+          table: environment.$depth.encounter
+          advantage: 1
+    - name: We're Not Alone
+      description: A chill runs down your spine. Something is hidden in here, and it is aware of you. You’re hunted. Roll on the Encounter table for this floor with [++]. The Heirs are being stalked by that creature and it is within one room of them.
+      roll:
+        - format: 'Stalking: %s'
+          table: environment.$depth.encounter
+          advantage: 2
+    - name: Rip current
+      description: It feels like a normal room when you first enter but slowly an immense pressure begins to pull you to the floor. Every combat turn that goes by the characters must make a STR Save or fall prone.
+    - name: A Rogue Wave
+      description: |-
+        You hear a rumbling before you see it. Whatever water was running through the channels in the room pulls back, until there’s only a trickle.
+
+        Any creature in the room can take one Action before the wave hits.
+        If they can’t find some cover or means of securing themselves to something sufficiently large they will be swept 1D4 rooms away, along with anything else caught in the path of the wave. Any creature swept by the wave, which isn’t properly adapted to life in the Depths takes 1D8 Bludgeoning Damage and is knocked prone.
+      # Creatures and Rubble in the Wave: 1D6
+      roll: misc.rogue_wave
+
+  coral:
+    format: 'Coral: %s'
+    entries:
+      - name: Soothing Coral
+        description: A soft fan like coral that secretes a soothing mucus.
+      - name: Chalky Coral
+        description: Powdery. If ingested it makes your bones stronger and your skin tougher. Can be used as chalk.
+      - name: Lantern Coral
+        description: A spherical coral bulb that glows like a lantern at night. Doesn’t require fuel. Just keep it wet.
+      - name: Sea Pen
+        description: Looks like a quill. Secretes a dark mucous from the base. Can be used as a pen.
+      - name: Elkhorn Coral
+        description: Stout shelf-like coral. Good for crafting.
+      - name: Pillar Coral
+        description: Creates small pillars. They are quite strong.
+      - name: Bulb Coral
+        description: Stout. Can be used as a cudgel.
+      - name: Pike Coral
+        description: Pokey. Can be used as a spear. Dangerous to run or fall into. 1D8 Piercing.
+      - name: Brain Coral
+        description: Sentient and telepathic. Turns into a Coral Golem over time. Don’t get on its bad side!
+      - name: Fire Coral
+        description: Combustible. Coming in contact with it will cause it to burst into flames and deal 1D6 Heat Damage. Works like a torch.
+      - name: Urchin's Spine
+        description: Poisonous. Coming in contact with it will cause Poison Damage. You have to make a CON Save or take 1D4 Poison damage. Save Ends.
+      - name: Calcium Coral
+        description: Parasitic. Coming into contact with this coral infects you with its polyps. Any creature infected must make a CON Save. If the creature fails they slowly lose one CON per day until their skeletal system is converted completely into coral. Once the infected creature is out of CON, they die from blood loss due to the coral bursting from their flesh, or dehydration due to being unable to move.
+
+  equipment:
+    armor:
+      format: 'Armor: %s'
+      description: Prices are equal to the die value x200.
+      entries:
+        - name: No Armor
+          description: '(Defense: 11)'
+          frequency: 3
+        - name: 'Canvas Tunic (Price: D * 200)'
+          description: '(Defense: 12, Slot: 1, Quality: 3)'
+          frequency: 10
+        - name: 'Seal Leather (Price: D * 200)'
+          description: '(Defense: 13, Slot: 2, Quality: 4)'
+          frequency: 5
+        - name: 'Iron-Scale Mail (Price: D * 200)'
+          description: '(Defense: 14, Slot: 3, Quality: 5)'
+          frequency: 1
+        - name: 'Exotic Armor (Price: D * 200)'
+          frequency: 1
+          roll: equipment.exotic_armor
+    exotic_armor:
+      - name: Flotsam Armor (Pelagic)
+        description: '(Defense: 13, Slot: 3, Quality: 2)'
+      - name: Coral Plate (Reef)
+        description: '(Defense: 15, Slot: 3, Quality: 5, Resist: Poison)'
+      - name: Kelp Robe (Kelp Forest)
+        description: '(Defense: 12, Slot: 2, Quality: 3, Resist: Spells)'
+      - name: Bioluminescent Eel Armor (Twilight)
+        description: '(Defense: 14, Slot: 2, Quality: 4, Generates red light. Creatures of the Depths can’t see red light.)'
+      - name: Yeti “Fur” Armor (Trench)
+        description: '(Defense: 14, Slot: 2, Quality: 4, Resist: Heat and Cold)'
+      - name: Pressure Forged Steel Plate (Trench)
+        description: '(Defense: 15, Slot: 3, Quality: 5, Damage Reduction)'
+    exotic_weapon:
+      - name: Scavenged Weapon (Pelagic)
+        description: '(Damage: [-], Quality: -2)'
+      - name: Coral-crafted Weapon (Reef)
+        description: '(Damage: [+] Poison, Quality: +1)'
+      - name: Kelp-sling Weapon (Kelp Forest)
+        description: '(Slot: -1, Quality: +1)'
+      - name: Charged Weapon (Twilight)
+        description: '(Damage: [+] Electric, Quality: +1, Glows faintly like a candle.)'
+      - name: Vent-forged Weapon (Trench)
+        description: '(Damage: [+] Heat, Quality: +1)'
+      - name: Pressure-forged Weapon (Trench)
+        description: '(Damage: [+] Cold, Quality: +1)'
+    melee_weapon:
+      format: 'Melee Weapon: %s'
+      description: Prices are equal to the die value x100.
+      entries:
+        - name: 'Dagger (Price: D * 100)'
+          description: '(Damage: 1D6 Pierce, Slot: 1, Hand: 1, Quality: 3)'
+          frequency: 4
+        - name: 'Cudgel (Price: D * 100)'
+          description: '(Damage: 1D6 Bludgeon, Slot: 1, Hand: 1, Quality: 3)'
+          frequency: 2
+        - name: 'Sickle (Price: D * 100)'
+          description: '(Damage: 1D6 Slash, Slot: 1, Hand: 1, Quality: 3)'
+          frequency: 1
+        - name: 'Mace (Price: D * 100)'
+          description: '(Damage: 1D8 Bludgeon, Slot: 2, Hand: 1, Quality: 3)'
+          frequency: 2
+        - name: 'Spear (Price: D * 100)'
+          description: '(Damage: 1D8 Pierce, Slot: 2, Hand: 1, Quality: 3)'
+          frequency: 4
+        - name: 'Hand Ax/Sword (Price: D * 100)'
+          description: '(Damage: 1D8 Slash, Slot: 2, Hand: 1, Quality: 3)'
+          frequency: 1
+        - name: 'Eku (Price: D * 100)'
+          description: '(Damage: 1D8 Slash or Bludgeon, Slot: 3, Hand: 2, Quality: 3)'
+          frequency: 1
+        - name: 'Hammer (Price: D * 100)'
+          description: '(Damage: 1D10 Bludgeon, Slot: 3, Hand: 2, Quality: 3)'
+          frequency: 1
+        - name: 'Harpoon (Price: D * 100)'
+          description: '(Damage: 1D10 Pierce, Slot: 3, Hand: 2, Quality: 3)'
+          frequency: 2
+        - name: 'Ax/Longsword (Price: D * 100)'
+          description: '(Damage: 1D10 Slash, Slot: 2, Hand: 2, Quality: 3)'
+          frequency: 1
+        - name: 'Exotic Melee Weapon (Price: D * 100)'
+          frequency: 1
+          roll:
+            - equipment.exotic_weapon
+            - equipment.melee_weapon
+    ranged_weapon:
+      format: 'Ranged Weapon: %s'
+      description: Prices are equal to the die value x100. All shops have ammo.
+      entries:
+        - name: 'Sling (Price: D * 100)'
+          description: '(Ranged, Ammo: N/A, Damage: 1D4, Slot: 1, Hand: 1, Quality: 2)'
+          frequency: 11
+        - name: 'Bow (Price: D * 100)'
+          description: '(Ranged, Ammo: Arrows, Damage: 1D6, Slot: 2, Hand: 2, Quality: 3)'
+          frequency: 6
+        - name: 'Crossbow (Price: D * 100)'
+          description: '(Ranged, Ammo: Bolts, Damage: 1D8, Slot: 3, Hand: 2, Quality: 3)'
+          frequency: 2
+        - name: 'Exotic Ranged Weapon (Price: D * 100)'
+          frequency: 1
+          roll:
+            - equipment.exotic_weapon
+            - equipment.ranged_weapon
+
+  loot:
+    type: loot
+    entries:
+      - name: 2x rations worth of pickled herring in a jar.
+      - name: 1D4[+] rations worth of dried fish. It’s salty.
+        roll:
+          result:
+            name: 'Rations: %s'
+          args:
+            label: rations
+            die: 4
+            advantage: 1
+      - name: A bundle of 1D6 torches. They burn for three Rooms each.
+        roll:
+          result:
+            name: 'Torches: %s'
+          args:
+            label: torches
+            die: 4
+      - name: 2x Glass Jars. They’re big enough for Slugs!
+      - name: 2x Glass Buoys. They float and look pretty.
+      - name: A weighted net. Can hold a human-sized creature. It's got rocks to hold it down.
+      - name: A vial of Urchin venom (two doses). CON Save or take 1 Poison Damage per turn.
+      - name: A Slug in a Glass Jar. [Roll on the Slug table)
+        roll:
+          - format: 'Slug Color: %s'
+            table: slug.color
+          - format: 'Slug Effect: %s'
+            table: slug.effect
+      - name: A scroll made of kelp. [Roll on the Spell table to determine what spell it carries]
+        roll:
+          table: spell
+          format: 'Spell Scroll: %s'
+      - name: A rusty weapon. [Roll on the Melee Weapon table, it has a Quality Level of 1]
+        roll: equipment.melee_weapon
+      - name: Fishing rod and tackle. Can spend a rest fishing. Roll 1D6[-] gain that many Rations worth of fish.
+      - name: Some handy equipment. [Roll on the Dungeoneering Gear table twice]
+        roll:
+          table: character.equipment.dungeoneering
+          count: 2
+      - name: 2 scrolls made of kelp. [Roll on the Spell table twice to determine their effects]
+        roll:
+          format: 'Spell Scroll: %s'
+          table: spell
+          count: 2
+      - name: 2 Slugs in 2 Glass Jars. [Roll on the Slug table twice]
+        roll:
+          - format: 'Slug 1: %s'
+            table: slug.color
+          - format: 'Slug 1: %s'
+            table: slug.effect
+          - format: 'Slug 2: %s'
+            table: slug.color
+          - format: 'Slug 2: %s'
+            table: slug.effect
+      - name: A used suit of armor. [Roll on the Armor table, the quality is reduced by 1]
+        roll: equipment.armor
+      - name: A used weapon. [Roll on the Ranged Weapon table, the quality is reduced by 1]
+        roll: equipment.ranged_weapon
+      - name: A Spell Pearl. [Roll on the Spell table]
+        roll: spell
+      - name: A couple Slugs in Glass Jars. [Roll on the Slug Jar table, twice] (dupe? make up something cool instead)
+      - name: A minor magical weapon. [Roll on the Melee Weapon table, the weapon has [+]]
+        roll: equipment.melee_weapon
+      - name: Some magical treasure! How lucky! [Roll on the Treasure table]
+        roll: treasure
+
+  misc:
+    chum_nest:
+      format: 'Chum Nest: %s'
+      entries:
+        - type: creature
+          name: 3 Chum
+        - type: creature
+          name: 5 Chum
+        - type: creature
+          name: 4 Chum, 1 Chum Guard
+        - type: creature
+          name: 4 Chum, 2 Chum Guard, 1 Chum Priest
+    chum_nest_kelp:
+      format: 'Chum Nest: %s'
+      entries:
+        - type: creature
+          name: 8 Chum
+        - type: creature
+          name: 12 Chum
+        - type: creature
+          name: 10 Chum, 2 Chum Guard
+        - type: creature
+          name: 12 Chum, 2 Chum Guard, 1 Chum Priest
+    chum_town:
+      format: 'Chum Town: %s'
+      entries:
+        - type: creature
+          name: 10 Chum
+        - type: creature
+          name: 8 Chum, Chum Priest
+        - type: creature
+          name: 6 Chum, Eelaconda
+        - type: creature
+          name: 12 Chum, 2 Chum Priest
+        - name: 6 Chum Priests are chanting, more Chum watch curiously from the channels in the walls.
+          roll:
+            result:
+              type: creature
+              name: 6 Chum Priest +
+        - name: A Deep Chum champion (wearing coral plate and wielding a Random Treasure) riding a Hammerhead Stalker
+          roll:
+            result:
+              type: creature
+              name: Deep Chum + Hammerhead Stalker
+    coral_maze:
+      format: 'Size of the Halls: %s'
+      entries:
+        - Open. The Heirs can pass through however they'd like.
+        - Tight. Two-by-two only.
+        - Low. Heirs must bend over and move at half speed.
+        - Fat man's squeeze. Single file.
+        - Stifling. It's dark. No light.
+        - Time to crawl. So low the Heirs have to crawl. Move at quarter speed.
+    deep_pool:
+      format: 'Deep Pool: %s'
+      entries:
+        - name: The water is full of Mystic Remora. They swim rapidly towards any magical item and begin to degrade its quality with each Attack.
+          roll:
+            result:
+              type: creature
+              name: Mystic Remora
+        - The water is fairly clear. No downside. A few small fish avoid the Heirs while swimming in the pool.
+        - The water is fairly clear. No downside. A few small fish avoid the Heirs while swimming in the pool.
+        - The water is murky. You can’t see anything underneath the surface.
+    dolpod_temple:
+      format: 'Dolpod Temple: %s'
+      entries:
+        - type: creature
+          name: 4 Dolpods
+        - type: creature
+          name: 6 Dolpods
+        - type: creature
+          name: 8 Dolpods
+        - name: A Dolpod Hive (A Dolpod with two times the HP and fights with Screeches that Deal 1D8 Psychic Damage)
+          roll:
+            result:
+              type: creature
+              name: Dolpod Hive
+    driftwood_pile:
+      format: 'Driftwood Pile: %s'
+      entries:
+        - type: creature
+          name: 1 Wandering Hermit Merchant
+        - type: creature
+          name: 2 Chum
+        - type: creature
+          name: 3 Glaucimmian
+        - type: creature
+          name: 4 Gulltures
+        - type: creature
+          name: 6 Chum
+        - type: creature
+          name: 1 Eelaconda
+        - type: creature
+          name: 8 Chum
+        - type: creature
+          name: A Scale Stalker
+    open_water:
+      format: 'Open Water: %s'
+      entries:
+        - name: 3 Chum float through.
+          roll:
+            result:
+              type: creature
+              name: 3 Chum
+        - name: A Sack of Loot floats past. Roll three times on the Loot Table.
+          roll:
+            table: loot
+            count: 3
+        - Someone sent the dead’s Sand down. Gain 500 Sand.
+        - Someone sent the dead’s Sand down. Gain 500 Sand.
+        - name: A Dead Chum floating on its back, it’s holding a wooden figurine. Roll for a random Spell, this figurine functions as a Spell Pearl of that Spell.
+          roll: spell
+        - name: An Eelaconda enters.
+          roll:
+            result:
+              type: creature
+              name: Eelaconda
+    open_water_twilight:
+      format: 'Open Water: %s'
+      entries:
+        - name: 4 Chum float through, they are completely lost.
+          roll:
+            result:
+              type: creature
+              name: 4 Chum
+        - name: A Sack of Loot floats past. Roll three times on the Loot Table.
+          roll:
+            table: loot
+            count: 3
+        - Someone sent the dead’s Sand down. Gain 1000 Sand.
+        - Someone sent the dead’s Sand down. Gain 1000 Sand.
+        - name: A Dead Chum floating on its back, it’s holding an onyx figurine. Roll for 2 random Spells, this figurine functions as a Spell Pearl of that Spell.
+          roll:
+            table: spell
+            count: 2
+        - name: 2 Electric Eelaconda enter.
+          roll:
+            result:
+              type: creature
+              name: 2 Electric Eelaconda
+    rogue_wave:
+      format: 'Rogue Wave: %s'
+      entries:
+        - name: A Chest, roll for Loot 4 times.
+          roll:
+            table: loot
+            count: 4
+        - name: A Dead Sailor (Heir’s may loot the body).
+          roll: loot
+        - name: '[Current Depth]D6 Chum come crashing into the room with the wave.'
+          roll:
+            - result:
+                type: creature
+                name: '%s Chum'
+              args:
+                label: chum
+                die: 6
+                count: $depth_value
+        - Some discarded netting floats along. Any creature in the wave must make a DEX Save or become tangled. If they become tangled they must make a CON Save or drown and die.
+        - name: 1D6 Dolpods swimming easily inside the wave. They attack any Heir that is caught in the wave with them.
+          roll:
+            - result:
+                type: creature
+                name: '%s Dolpods'
+              args:
+                label: dolpods
+                die: 6
+        - name: A Spear Swimmer which attempts to impale any Heirs caught in the wave and carry them with the wave.
+          roll:
+            result:
+              type: creature
+              name: Spear Swimmer
+    sinking_ship:
+      format: 'Sinking Ship %s'
+      entries:
+        - name: A Chest of Loot (Roll on Loot table twice) is found!
+          roll:
+            table: loot
+            count: 2
+        - name: A Dead Sailor (Roll on Loot table) is found.
+          roll:
+            table: loot
+        - name: A Hermit has set up shop. (Roll on each of the Gear Tables twice to determine stock. The prices are equal to the corresponding dice value x 1.0.
+          roll:
+            table:
+              - equipment.armor
+              - character.equipment.helmet_and_shield
+              - equipment.melee_weapon
+              - equipment.ranged_weapon
+            count: 2
+        - name: There is a noticeable lack of metal on-board. Hiding in the hold, chewing on bolts is a Steel Beak.
+          roll:
+            result:
+              type: creature
+              name: Steel Beak
+        - name: The Heirs find 2 Dolpod Cultists worshipping at a desecrated temple to the Deep Queen.
+          roll:
+            result:
+              type: creature
+              name: 2 Dolpod Cultists
+        - name: The ship is covered in Plague Urchins.
+          roll:
+            result:
+              type: creature
+              name: Plague Urchins
+    spinney:
+      format: 'Spinney: %s'
+      entries:
+        - Pike Coral - Long shafts of sharp coral spread out from central bases in this room. You can see the corpse of a strange human-looking creature impaled on one of the colonies.
+        - Fire Coral - Large shrubs of bright orange, red, and yellow coral grow around the room. A few scorched Chum corpses lay on the ground in various places.
+        - Urchin's Spine - Small shrub-like colonies of deep violet and black coral grow here. The body of a man lies at the base of one shrub. The corpse is swollen and bloated.
+        - Calcium Coral - Small tree-like growths of a pale white coral grow here. They are sharp and jagged. The smaller trees have a dark red patina to them. A skeleton lies on the ground. The bones are rougher than normal.
+    spawning_pool:
+      advantage: -1
+      format: 'Spawning Pool: %s'
+      entries:
+        - type: creature
+          name: 1 Chum
+        - type: creature
+          name: 3 Chum
+        - type: creature
+          name: 3 Chum, 1 Chum Guard
+        - type: creature
+          name: 4 Chum, 2 Chum Guard, 1 Chum Priest
+    spawning_pool_twilight:
+      format: 'Spawning Pool: %s'
+      entries:
+        - type: creature
+          name: 4 Chum, 2 Balloon Chum
+        - type: creature
+          name: 6 Tropical Chum
+        - type: creature
+          name: 6 Chumacuda
+        - type: creature
+          name: 4 Deep Chum
+
+  shrine:
+    format: 'Shrine: %s'
+    entries:
+      - name: Deep Queen
+        description: |-
+          An older woman wearing a crown of coral, driftwood, bone, and rock. She holds a harpoon in one hand and a baby in the other.
+
+          CON Save.
+          1-12. Gain a permanent -1 bonus to CON.
+          13-14. Gain a Spell Pearl of Water Whip.
+          15-19. Gain a permanent +1 bonus to CON.
+          20+. You gain the Deep Queen’s Harpoon or a permanent +2 bonus to CON.
+      - name: High Lord of Elcontra
+        description: |-
+          An old stout man wearing a crown of stone. He looks proud and powerful. In one hand is a long pick and in the other a hammer.
+
+          STR Save.
+          1-12. Gain a permanent -1 bonus to STR.
+          13-14. Gain a Spell Pearl of Shape Elements.
+          15-19. Gain a permanent +1 bonus to STR.
+          20+. You gain Elcontra’s Hammer or a permanent +2 bonus to STR.
+      - name: High Lady of Frigil
+        description: |-
+          An old woman wearing a crown of ice and furs draped around her. She looks quiet and contemplative. In one hand she holds an ice pick and from the other pours ice water.
+
+          WIS Save.
+          1-12. Gain a permanent -1 bonus to WIS.
+          13-14. Gain a Spell Pearl of Icy Touch.
+          15-19. Gain a permanent +1 bonus to WIS.
+          20+. You gain Frigil's Pick or permanent +2 bonus to WIS.
+      - name: Green Prince
+        description: |-
+          An androgynous young person who looks excited and energetic. They wear a cloak of greenery. In one hand is a hunting spear and in the other an ax.
+
+          DEX Save.
+          1-12. Gain a permanent -1 bonus to DEX.
+          13-14. Gain a Spell Pearl of Thicket.
+          15-19. Gain a permanent +1 bonus to DEX.
+          20+. You gain the Green Prince’s Ax or a permanent +2 bonus to DEX.
+      - name: High Lord of Foltoran
+        description: |-
+          A middle-aged man wearing a crown of grass. He looks gentle and wise. He carries a scythe in one hand and grain in the other.
+
+          INT Save.
+          1-12. Gain a permanent -1 bonus to INT.
+          13-14. Gain a Spell Pearl of Gust.
+          15-19. Gain a permanent +1 bonus to INT.
+          20+. You gain Foltoran’s Scythe or a permanent +2 bonus to INT.
+      - name: Yellow Princess
+        description: |-
+          A young person wearing cloaks and cloth around their head and face. They carry a shovel in one hand and in the other slides a font of Sand.
+
+          CHA Save.
+          1-12. Gain a permanent -1 bonus to CHA.
+          13-14. Gain a Spell Pearl of Marble Madness.
+          15-19. Gain a permanent +1 bonus to CHA.
+          20+. You gain Yellow Princess' Spade or a permanent +2 bonus to CHA.
+
+  slug:
+    effect:
+      - Regneration
+      - Regneration
+      - Regneration
+      - Regneration
+      - Regneration
+      - Miniaturize
+      - Multiarm
+      - Slug Climb
+      - Iron Scales
+      - Hover
+      - Haste
+      - Command
+      - Deafen
+      - Charm
+      - Frenzy
+      - Hatred
+      - Hypnotize
+      - Pacify
+      - Sleep
+      - Thaumaturgic Anchor
+    color:
+      - White with purple cerata
+      - Purple with a white stripe
+      - Tan with brown cerata
+      - Black with gold scaley cerata
+      - Pink with translucent cerata
+      - Teal with red spots
+      - Gold with black and white stripes
+      - Translucent white with blue cerata
+      - Sky blue with dark blue stripes
+      - Orange with black cerata
+      - Green with black stripes
+      - Cream with black speckles
+      - Gray with pink bumps
+      - Violet with red cerata
+      - Yellow with black speckles
+      - Lime with leaf green cerata
+      - Blue with yellow cerata
+      - Indigo with yellow stripes
+      - Brown with gray bumps
+      - Red with maroon spots
+
+  spell:
+    format: 'Spell Pearl: %s'
+    entries:
+      - name: Arcane Eye
+        description: Charges 1 | You can see through a magical floating eyeball that flies around at your command.
+      - name: Auditory Illusion
+        description: Charges 2 | You create illusory sounds that seem to come from the direction of your choice.
+      - name: Beast Form
+        description: Charges L | You and your possessions transform into a creature whose Sand you have previously ingested.
+      - name: Befuddle
+        description: Charges 1 | L creatures of your choice are unable to form new short-term memories for the duration of the Spell.
+      - name: Bend Fate
+        description: Charges L | Roll L+1D20s and bank them. After casting this spell, whenever you must roll a D20 you must choose one of the previously rolled, banked dice and replace the dice you just rolled with it. Continue until all banked dice are used, or until your rest.
+      - name: Body Swap
+        description: Charges 1 | You switch bodies with a creature you touch. If one body dies, the other dies as well.
+      - name: Boiling Blast
+        description: Charges 2xL | A cone of boiling water shoots from your hand. Target creatures must make a DEX Save or take 1D10 Heat Damage.
+      - name: Charm
+        description: Charges 1 | L creatures treat you like a friend.
+      - name: Chum Call
+        description: Charges L | A strange droning whistle comes from around you. The sound summons LD4 Chum that come into the room enraged.
+      - name: Command
+        description: Charges 1 | A creature obeys a single, three-word command that does not harm it.
+      - name: Counterspell
+        description: Charges L | Make an opposed INT Save against the INT of the caster of a nearby Spell. You may do this out of turn as a reaction, or against an ongoing magical effect. On a success, you may cancel the other caster’s Spell.
+      - name: Crushing Pressure
+        description: Charges 1 | The air pressure in the Room increases to be equivalent to the water pressure at the bottom of the ocean. Anything within the cube must make a CON or STR Save each round they are within the cube or take 1D8 Bludgeoning Damage from the crushing pressure.
+      - name: Deafen
+        description: Charges 1 | All creatures in the Room are deafened.
+      - name: Dehydrate
+        description: Charges 1 | All water in the Room rapidly evaporates. Any creatures caught in the area must make a CON Save or take their Hit Die in damage.
+      - name: Detect Magic
+        description: Charges 1 | You hear nearby magical auras singing. Volume and harmony signify the aura’s power and refinement.
+      - name: Disguise
+        description: Charges 1 | You may alter the appearance of L characters at will, as long as they remain humanoid. Attempts to duplicate other characters will seem uncanny.
+      - name: Drowning in Words
+        description: Charges 1 | Target creature has seawater come out of its mouth whenever it tries to communicate verbally.
+      - name: Earthquake
+        description: Charges 1 | The ground begins shaking violently. Structures may be damaged or collapse. Can knock creatures prone on failed DEX Save.
+      - name: Elasticity
+        description: Charges L | Your body can stretch up to L×10 feet.
+      - name: Elemental Wall
+        description: Charges L | A straight wall of ice or fire L×10 feet long and 10ft high rises from the ground.
+      - name: Fog Cloud
+        description: Charges 2 | Dense fog spreads out from you and covers the room.
+      - name: Frenzy
+        description: Charges 1 | L creatures erupt in a frenzy of violence.
+      - name: Geysers
+        description: Charges L | L geysers appear in positions of your choice in the room you are in. They can violently lift anything above them. If a lifted thing hits a ceiling it takes 2D6 Damage
+      - name: Gravity Shift
+        description: Charges 1 | You can change the direction of gravity (for yourself only) up to once per round.
+      - name: Greed
+        description: Charges 1 | L creatures develop an overwhelming urge to possess a visible item of your choice.
+      - name: Gust
+        description: Charges L | Creatures in a cone in front of you must make a STR Save or get pushed 10ft away from you. If the creatures collide with an object or other creature they take 1D4 Damage per 5ft moved.
+      - name: Haste
+        description: Charges 1 | Target’s movement speed is doubled.
+      - name: Hatred
+        description: Charges 1 | L creatures develop a deep hatred of another creature or group of creatures of your choice, and wish to destroy it.
+      - name: Hold
+        description: Charges 1 | An object is frozen in time and space within an invulnerable crystal shell.
+      - name: Hover
+        description: Charges L | An object hovers, frictionless, 2ft above the ground. It can hold up to L humanoids.
+      - name: Icy Touch
+        description: Charges L | A thick ice layer spreads across a touched surface, up to the whole Room.
+      - name: Illuminate
+        description: Charges 3 | A floating light moves as you command.
+      - name: Ink Cloud
+        description: Charges 2 | An L×40 feet wide cloud of darkness spreads out of you.
+      - name: Inverted Bubble
+        description: Charges L | You blow out a bunch of not-bubbles. LD4 orbs of water get blown in a cone in front of you. Anything that comes into contact with the water has it adhere to them, slowing them down.
+      - name: Knock
+        description: Charges L | A nearby mundane or magical lock unlocks.
+      - name: Lightning Bolt
+        description: Charges 1⁄2 L | A bolt of electricity dances from your fingers. Target creature must make a contested DEX Save vs your INT or take 1D10 Electrical Damage.
+      - name: Liquid Air
+        description: Charges 1 | The air around you becomes swimmable.
+      - name: Lodestone
+        description: Charges 2 | L+1 objects are strongly magnetically attracted to each other if they come within 10ft.
+      - name: Marble Madness
+        description: Charges 2 | Your pockets are full of marbles, and will refill every round.
+      - name: Masquerade
+        description: Charges 1 | L characters’ appearances and voices become identical to a touched character.
+      - name: Miniaturize
+        description: Charges 1 | You and L other touched creatures are reduced to the size of a walnut.
+      - name: Mirror Image
+        description: Charges 2 | L illusory duplicates of yourself appear under your control.
+      - name: Multiarm
+        description: Charges 1 | You gain L extra arms. They stick around until your next Rest.
+      - name: Pacify
+        description: Charges 1 | L creatures have an aversion to violence.
+      - name: Phobia
+        description: Charges 1 | L creatures become terrified of an object of your choice.
+      - name: Giant Growth
+        description: Charges 1 | An object grows to the size of an elephant. If it is an animal, it is enraged.
+      - name: Pull
+        description: Charges L | An object of any size is pulled directly towards you with the strength of L men for one round.
+      - name: Push
+        description: Charges L | An object of any size is pushed directly away from you with the strength of L people for one round.
+      - name: Raise Dead
+        description: Charges 1 | L nearby bodies rise from the ground to serve you. They are incredibly stupid and can only obey simple orders.
+      - name: Raise Spirit
+        description: Charges 1 | The spirit of a dead body manifests and will answer L questions.
+      - name: Read Mind
+        description: Charges 1 | You can hear the surface thoughts of nearby creatures.
+      - name: Regeneration
+        description: Charges 2 | You heal a target creature LD4 HP.
+      - name: Repel
+        description: Charges 1 | L+1 objects are strongly magnetically repelled from each other if they come within 10ft.
+      - name: Scales of Iron
+        description: Charges 2 | Target creature gains +2 AD until your next Exploration Turn.
+      - name: Sculpt Elements
+        description: Charges 1 | All inanimate material behaves like clay in your hands.
+      - name: Seafoam Form
+        description: Charges 1 | Your body becomes living seafoam.
+      - name: Shroud
+        description: Charges 1 | L creatures are invisible until they move.
+      - name: Shuffle
+        description: Charges 1 | L+1 creatures instantly switch places. Determine where they end up randomly.
+      - name: Sleep
+        description: Charges 1 | L creatures fall into a light sleep.
+      - name: Slug Slime
+        description: Charges 1 | Your hands and feet secrete a sticky mucus that allows you to climb surfaces like a slug.
+      - name: Sniff
+        description: Charges 1 | You can smell even the faintest trace of a scent.
+      - name: Spellseize
+        description: Charges L | Cast this as a reaction to another Spell going off to make a temporary copy of it that you can cast at any time before this Spell ends.
+      - name: Sudden Wave
+        description: Charges 1⁄2 L | A wave that appears suddenly. It comes outta nowhere and slams all creatures in the Room away from you, dealing 1D8 Damage.
+      - name: Summon Cube
+        description: Charges L | Once per second, (6 times per round) you may summon or banish a 3ft square cube of earth. New cubes must be affixed to the earth or to other cubes.
+      - name: Swarm
+        description: Charges L | You become a swarm of shrimp, plankton, or piranhas. You may occupy the same space as another creature. You may choose to deal 1D6 Damage to that creature per turn.
+      - name: Telepathy
+        description: Charges L | L+1 creatures can hear each other’s thoughts, no matter how far apart they move.
+      - name: Teleport
+        description: Charges 1 | An object disappears and reappears on the ground in a visible, clear area up to L×40 feet away.
+      - name: Thaumaturgic Anchor
+        description: Charges L | Target object becomes the target of every spell cast near it.
+      - name: Thicket
+        description: Charges L | A thicket of kelp and seaweed suddenly sprouts up, coverign the Room.
+      - name: Time Jump
+        description: Charges 1 | An object disappears as it jumps L×10 minutes into the future. When it returns, it appears in the unoccupied area nearest to where it left.
+      - name: True Sight
+        description: Charges L | You see through all nearby illusions.
+      - name: Urchin Barbs
+        description: Charges L | Any creature that comes in contact with your poisonous barbs takes 1D4 Poison Damage.
+      - name: Visual Illusion
+        description: Charges L | A silent, immobile illusion of your choice appears, up to the size of a bedroom.
+      - name: Ward
+        description: 'Charges 1 | A green circle appears around the Room. Choose one species that cannot enter the Room: Piscine, Crustacean, Cephalapod, or Cetacean.'
+      - name: Water Whip
+        description: Charges 2xL | A source of water you can see obeys your command. You can use it as a Whip.
+      - name: Re-roll Spell!
+        roll: spell
+        frequency: 25
+        # description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+      # - name: Placebo!
+      #   description: Charges N | Replace me!
+
+  treasure:
+    type: loot
+    format: Treasure! %s
+    entries:
+      - name: An Anchor With An Unusually Long Shank
+        description: |-
+          You could give something a good whack with it.
+
+          Arcane Study: The Anchor of Ataahua
+          Damage: 1D10 | Hand: 2 | Quality: 5 | Slot: 3 | The wielder is not affected by involuntary movement.
+
+          This large anchor-like war pick was wielded by Ataahua. She was a famous Sailor (if any Heirs are Sailors she can be one of their ancestors, forgotten to the ravages of time) and the first to find another island after the Great Flood. From the bow of a pirate vessel, the anchor was hewn and used to send its previous owners to the embrace of the Deep Queen.
+      - name: A Vibrantly Colored Conch
+        description: |-
+          It whispers stories when held up to a person's ear. The conch tells a different tale every day. Tales are at the discretion of the GM. Use this item as a way to build out the myth of the Deep Queen’s Temple, build up stories from past generations of Heirs, or just add your own flair.
+
+          Arcane Study 1: Wilhelm's Shell
+          This shell once was the home of a sentient conch by the name of Wilhelm. Wilhelm travelled the three currents to collect tales from all. Their spirit was bound to their shell by their desire to share their collected tales. Now anyone who holds the shell to their ear can listen to one of Wilhelm's tales. There may be more to learn here...
+
+          Arcane Study 2:
+          Wilhelm was so driven and empathetic towards their stories that they began to act out the parts in the tales.
+
+          If you ask Wilhelm nicely (by succeeding on a CHA Save) Wilhelm will come out of their shell as a character from one of their tales. They will obey any command that you ask of them.
+      - name: A Ship's Wheel That Has Been Retrofitted With A Backing And Handle
+        description: |-
+          Could be used as a shield.
+
+          Arcane Study: The Leviathan's Wheel
+          +2 Armor | Hand: 1 | Quality: 3 | Slot: 2 | Once per Rest you may spin the wheel to rotate the room you are in by 90 degrees.
+          A wheel from the young Emperor Cennin's mighty ship Leviathan, said to be an island 67 all its own.
+      - name: A Horn Made Of Tarnished Brass That Has The Image Of A Lighthouse Inscribed On It
+        description: |-
+          When blown it makes no noise, but a thick fog billows out.
+
+          Arcane Study: Fetu’s Foghorn
+          Once per Rest you may spend an Action blowing the horn to create thick fog in the room you are in. It gives any creature that relies on sight [-] on Attack rolls and Saves that rely on sight.
+
+          Fetu was the keeper of a lighthouse on a distant island. On especially foggy nights they would blow their horn to warn passing ships of the peninsula the lighthouse set on. Until one foggy night when they chose not to.
+      - name: A Large Crab's Claw That Has Been Strung With A Fine Thread
+        description: |-
+          It makes a haunting melody when played like a fiddle.
+
+          Arcane Study: The Fiddler’s Claw
+          Gives [+] on any checks involving the instrument. | You may play a song on the Fiddler’s Claw to attempt to cast Charm on any crustacean.
+
+          A claw of a crustacean musician. Famed for their skill and known to draw crowds of crabs from miles around. So frustrated was the original fiddler by the lack of proper musical instruments that they removed their own claw and created a perfect fiddle out of it.
+      - name: It Looks Somewhat Like An Ornate Brass Astrolabe
+        description: |-
+          The face is covered in a grid of circles laid out like a cylinder that changes in diameter. You can spin each circle independently.
+
+          Arcane Study: Mereana’s Trench Navigator
+          Once per Rest you may make a WIS Save to give the GM [+] or [-] on a room generation check. This ability stacks with other similar abilities.
+
+          One of the first explorers of the Deep Queen’s Temple, Mereana made it her life’s work to chart its infinite halls. She discovered the location of the Deep Queen’s Throne and attempted to get the Crown to return it. However, she wasn’t a member of one of the founding families and they refused to risk the Crown in the hands of an outsider. In her frustration Mereana threw the navigator into the depths and sailed away from Manawa, never to be seen again.
+      - name: A Large Two-Handed, Tree Felling Axe
+        description: |-
+          It is covered in rust, but it still feels sharp and strong. The shaft appears to have grown around the blade naturally.
+
+          Arcane Study: The Green Prince’s Ax
+          Damage: 1D10 [+] | Hand: 2 | Quality: 5 | Slot: 3 | The ax regenerates 1 Quality per Rest. | You may cast Thicket once per Rest.
+
+          You see a sapling. Small and weak. It reaches for the sun in a dense forest, but it’s too small and can’t reach it. Suddenly a shadow passes over and a small smiling face looks down at it. The face looks up at the branches above and frowns. You see the small child climb the nearby trees and prune the branches so the sapling can grow. Then the child returns to the sapling and whispers to it. The sapling perks up and embraces the piece of old iron that the child offers it. Forever grateful, it never left the child’s side. Not even when the water came and took the child. Not until now.
+      - name: A Massive Maul Made Of Granite
+        description: |-
+          On it is an imprint of an old man’s face. It is craggy and filled with deep powerful ridges.
+
+          Arcane Study: Elcontra’s Hammer
+          Damage: 1D10 [+] | Hand: 2 | Quality: 5 | Slot: 3 | Deals double damage to structure and constructs. | You may cast Shape Elements once per Rest.
+
+          A massive man is sitting bent over a potter’s wheel. He begins to spin it and as the revolutions begin to slow you see a newly formed mountain. It towers as he places it with the others. He shrinks down and sits atop the mountain. He chuckles with a great laugh and then looks to see a blemish in the mountain, a piece of granite is ticking up in an unsightly way. Tutting, the giant walks over to the blemish and wrenches it free with one mighty tug. Then he sets it down and looks at it. A mischievous grin spreads across his face and he slowly massages the boulder until it is pliable like clay. Then he smashes his face into it. When he pulls his face back he sees his imprint and guffaws. He sticks a large stout pine into the base of the boulder and slings it across his shoulder, carrying it on his travels.
+      - name: A Scythe That's Blade Is Mostly Transparent
+        description: |-
+          It shifts ever so slightly.
+
+          Arcane Study: Foltoran’s Scythe
+          Damage: 1D8 [+] | Hand: 2 | Quality: 5 | Slot: 3 | If you kill a creature with the scythe you may immediately make an additional Attack versus another adjacent creature. | You may cast Gust twice per Rest.
+
+          A gentle looking man looks out over a massive field. The grass and grain shifts in the wind. The man ponders this and begins to mimic the patterns of the winds with his hands. Then in his hands the wind begins to solidify into a blade. The man stops and ponders the blade, pricks his finger and winces. Nods approvingly and then connects the blade to a bamboo shaft. He then begins to harvest and tend to the grains.
+      - name: A Pick With A Translucent Head
+        description: |-
+          It sweats beads of water and is as cold as ice.
+
+          Arcane Study: Frigil’s Pick
+          Damage: 1D6 [+] | Hand: 1 | Quality: 5 | Slot: 2 | The magical ice of this pick allows you to ignore two points of AD on targets you Attack with the pick. | You may cast Icy Touch twice per Rest.
+
+          A woman walks through a series of ice caves. The caves glow a deep blue and her face looks at peace. Her eyes pass over a series of icicles, and they stop on the last one. The next thing you see is her hand reach up and snap off the icicle. Sculpting it slowly, she creates a slight curve to the spike and smoothes it. She then finds another longer icicle and she melts the two together. Then she takes an animal skin out of her pack and wraps the handle with it to keep her hand warm.
+      - name: A Shovel With A Head Made of Glass
+        description: |-
+          The handle is made of blackened charred wood.
+
+          Arcane Study: The Yellow Princess’ Shovel
+          Damage: 1D8 [+] | Hand: 2 | Quality: 5 | Slot: 3 | You may spend an action whipping up a dust devil to obscure you for one turn, it gives [-] to any creatures trying to Attack you. | You may cast Marble Madness twice per Rest.
+
+          A teenager sprints as fast as the wind across countless dunes, occasionally skipping from one dune to the next, their lithe form hardly disturbing the sand. They skid to a stop in front of a scorched area with a blackened tree in the center. They circle it curiously, then approach carefully and grab hold of the tree. Giving it a wiggle, you hear cracking. They stomp the ground a few times then give the tree a solid tug. Out comes the shovel you now hold in their hands. They smile and twirl the shovel around themselves sending grains of sand spiraling out.
+      - name: A Harpoon, The Point Appears To Be Made Of Volcanic Rock And Is Split Down The Middle
+        description: |-
+          One side is freezing to the touch and the other blistering.
+
+          Arcane Study: The Deep Queen’s Harpoon
+          Damage: 1D12 [+] | Hand: 2 | Quality: 5 | Slot: 3 | Anytime you Attack with the harpoon you may choose to do 1D4 additional damage that is either Cold or Heat damage. | You may cast Boiling Blast twice per rest.
+
+          A woman in a crown watches strange creatures swimming in a primordial sea. The beasts squirm and writhe as you watch. Then the sun begins to move quicker overhead and it keeps accelerating until it is blurring across the sky. The creatures rapidly change until you see one climb out onto the shore of the sea and take its first clumsy steps on the sandy beach. The woman smiles. Time moves onward until you see people pushing primitive canoes out into the ocean and begin to fish. The woman smiles and sends fish and squid up their nets. Time moves on, the woman gives birth to a small child, green, with a crown of twigs. The woman hugs the child sweetly. Time continues and she sends the child up onto land to create their own space. Onward the sun moves and you see her find her crown missing. She clenches the harpoon with frustration and looks out to the land. The sun flickers forward for a moment, and next you see she is clenching the harpoon tighter than you believed possible. In her other hand is a crown of twigs. It is water-logged. She sobs and the harpoon does as well.

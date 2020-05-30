@@ -1,10 +1,12 @@
 # aros
-A helper tool to generate content from https://www.kickstarter.com/projects/dastardlydave/a-rasp-of-sand-a-roguelike-tabletop-rpg-experience
+A helper tool to automatically generate content for A Rasp of Sand, a tabletop RPG Zine.
+
+## Thanks
+A Rasp of Sand is created by David Cox, an awesome guy.
+He's given me permission to public content as part of this open source project, to help facilitate running the game.
+Please check out the Kickstarter project here: https://www.kickstarter.com/projects/dastardlydave/a-rasp-of-sand-a-roguelike-tabletop-rpg-experience
 
 ## Installation
-
-* Important: this tool does not function without an accompanying configuration file that contains the Rasp of Sand content.
-
 First ensure you have Python 3.5+ installed.
 ```
 python --version
@@ -35,5 +37,12 @@ Run the tool on the command line.
 ```
 aros map pelagic -s awesome_seed
 Seed: awesome_seed
+...
 ```
+
 ![Imgur](https://i.imgur.com/u2BgBhV.png)
+
+Please run `aros --help` to see a list of additional commands and arguments.
+If you find any bugs, feel free to open an issue in this project, with as much detail as you can.
+
+Happy RASPing!
